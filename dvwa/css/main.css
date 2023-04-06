@@ -25,7 +25,7 @@ a img {
 	border: 0;
 }
 
-a: hover {
+a:hover {
 	text-decoration: none;
 }
 
@@ -111,7 +111,7 @@ div#container {
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	background: #867e7e; /*#f4f4f4*/
+	background: #f4f4f4;
 	font-size: 13px;
 }
 
@@ -129,8 +129,8 @@ div#system_info {
 }
 
 div#main_body {
-	float: center;
-	width: 693px;
+	float: left;
+	width: 81%;
 	background: #f4f4f4;
 	padding-top: 20px;
 	padding-bottom: 10px;
@@ -175,11 +175,11 @@ div#main_menu li.selected a {
 	color: #F9F7ED;
 }
 
-div#main_menu li: hover {
+div#main_menu li:hover {
 	border-color: #D2D4D4;
 }
 
-div#main_menu li: hover a {
+div#main_menu li:hover a {
 	color: #F9F7ED;
 }
 
