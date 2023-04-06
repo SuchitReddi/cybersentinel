@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Command Injection</title>
+    <meta name="viewport" content="width=device-width, initial scale=1">
+    <meta name="author" content="Suchit Reddi">
+</head>
+
+<body>
+
+    <div>
+        <style>
+            .rbutton {
+                border-radius: 50%;
+            }
+        </style>
+        <button class="rbutton"><a href="cmd_inj.html">0</a></button>
+        <button class="rbutton"><a href="1.html">1</a></button>
+        <button class="rbutton"><a href="2.html">2</a></button>
+        <button class="rbutton"><a href="3.html">3</a></button>
+        <button><a href="../index.php">Demo</a></button>
+    </div>
+
+    <h1 style="text-align: center;">Command Injection - Vulnerable Code</h1>
+    <p style="font-size: 20px;">
+        The <code>`ip`</code> address taken as <code>`$target`</code> is directly passed to the ping command without any
+        sanitization!<br>
+        <img src="../images/source.png" alt="Vulnerable code" style="width: 420px; height: 300px;"><br>
+        You have to determine how you can blacklist command seperators like <code>`&&`, `||`, `;`</code>, etc.<br>
+        Or you can specify the exact format of input and ignore everything else.<br>
+    </p>
+</body>
+
+<footer>
+    <button><a href="./3.html">Next</a></button>
+</footer>
+
+</html>

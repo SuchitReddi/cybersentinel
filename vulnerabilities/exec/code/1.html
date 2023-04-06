@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Command Injection</title>
+    <meta name="viewport" content="width=device-width, initial scale=1">
+    <meta name="author" content="Suchit Reddi">
+</head>
+
+<body>
+
+    <div>
+        <style>
+            .rbutton {
+                border-radius: 50%;
+            }
+        </style>
+        <button class="rbutton"><a href="cmd_inj.html">0</a></button>
+        <button class="rbutton"><a href="1.html">1</a></button>
+        <button class="rbutton"><a href="2.html">2</a></button>
+        <button class="rbutton"><a href="3.html">3</a></button>
+        <button><a href="../index.php">Demo</a></button>
+    </div>
+
+    <h1 style="text-align: center;">Command Injection - Demonstration</h1>
+    <p style="font-size: 20px;">
+        Here, we made a web application to ping an IP address or domain name, calling the CLI to a `ping` command.<br>
+        <img src="../images/ping_out.png" alt="Ping command output" style="width: 400px; height: 250px;"><br>
+        The expected input is an IP address or a domain name. But what about those creative and restless minds out
+        there? They attempt to do something more!<br>
+        They try to tag additional commands at the end of the IP address. If you aren't responsible to sanitize your
+        input, you may end up giving more control than you want to.<br>
+        <img src="../images/mal_ping.png" alt="Malicious Ping command" style="width: 370px; height: 270px"><br>
+        This output tells the malicious user that your website is vulnerable to <b>Command Injection</b>! Now let us see
+        what the vulnerablity is by observing the source code.<br>
+    </p>
+</body>
+
+<footer>
+    <button><a href="./2.html">Next</a></button>
+</footer>
+
+</html>

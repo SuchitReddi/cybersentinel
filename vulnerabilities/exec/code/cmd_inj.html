@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Command Injection</title>
+    <meta name="viewport" content="width=device-width, initial scale=1">
+    <meta name="author" content="Suchit Reddi">
+</head>
+
+<body>
+
+    <div>
+        <style>
+            .rbutton {
+                border-radius: 50%;
+            }
+        </style>
+        <button class="rbutton"><a href="cmd_inj.html">0</a></button>
+        <button class="rbutton"><a href="1.html">1</a></button>
+        <button class="rbutton"><a href="2.html">2</a></button>
+        <button class="rbutton"><a href="3.html">3</a></button>
+        <button><a href="../index.php">Demo</a></button>
+    </div>
+
+    <h1 style="text-align: center;">Command Injection - Intro</h1> <!--center-->
+    <p style="text-align: center; font-size:25px;">
+        All the tasks you perform on your computer can be done using the terminal. The first computers were completely
+        controlled only using terminals (CMD)! There was no GUI.<br><br>
+        But, humans prefer to make things easier. So, GUI gained in popularity.<br><br>
+        Some of the basic commands are ping, ifconfig, dir (ls), etc. Many web applications call OS processes directly
+        and use the command line interface (CLI).<br><br>
+        The CLI is very powerful, so you have to control how much power want to give to the user. This can be done by
+        securely constructing the command strings.
+    </p>
+</body>
+
+<footer>
+    <button><a href="./1.html">Next</a></button>
+</footer>
+
+</html>
