@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<center>
+
+    <head>
+        <meta charset="utf-8">
+        <title>XSS-DOM</title>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="author" content="Suchit Reddi">
+    </head>
+
+    <body>
+        <div>
+            <style>
+                .rbutton {
+                    border-radius: 50%;
+                }
+            </style>
+            <button class="rbutton"><a href="xss-dom.html">0</a></button>
+            <button class="rbutton"><a href="1.html">1</a></button>
+            <button class="rbutton"><a href="2.html">2</a></button>
+            <button class="rbutton"><a href="3.html">3</a></button>
+            <button><a href="../index.php">Demo</a></button>
+        </div>
+
+        <h1>DOM-based Cross-Site Scripting - Demonstration</h1>
+        <p style="font-size: 20px;">
+            This is a replica of a drop-down menu, which takes the selected options into a JavaScript funcntion. Similar
+            to <b>Command Injection</b>, if the input isn't validated, you're toast👀<br>
+            <img src="../images/default.png" alt="Option selected" style="width: 450px; height: 270px;"><br>
+            The expected input is an option present in the drop-down menu. You can observe that once you submit an
+            option, the url is being updated. If a malicious script is given as an option in the url, it will be
+            executed through JavaScript.<br>
+            <img src="../images/mal.png" alt="Malicious script" style="width: 470px; height: 200px"><br>
+            If your website is giving an alert by manipulating the url, the bad actor will know that it is vulnerable to
+            XSS.<br>
+            This vulnerability can be exploited in much more harmful ways, you can obtain the cookie of a logged in
+            user, and use it for <b>Session Hijacking</b>, where you can gain unauthorized access to a user's
+            account.<br>
+            <img src="../images/cookie.png" alt="Stealing cookies" style="width: 500px; height: 200px"><br>
+        </p>
+    </body>
+
+    <footer>
+        <button><a href="./2.html">Next</a></button>
+    </footer>
+</center>
+
+</html>

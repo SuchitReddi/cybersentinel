@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <center>
-<head>
-    <meta charset="utf-8">
-    <title>Command Injection</title>
-    <meta name="viewport" content="width=device-width, initial scale=1">
-    <meta name="author" content="Suchit Reddi">
-</head>
 
-<body>
+    <head>
+        <meta charset="utf-8">
+        <title>Command Injection</title>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="author" content="Suchit Reddi">
+    </head>
 
-    <div>
-        <style>
-            .rbutton {
-                border-radius: 50%;
-            }
-        </style>
-        <button class="rbutton"><a href="cmd_inj.html">0</a></button>
-        <button class="rbutton"><a href="1.html">1</a></button>
-        <button class="rbutton"><a href="2.html">2</a></button>
-        <button class="rbutton"><a href="3.html">3</a></button>
-        <button><a href="../index.php">Demo</a></button>
-    </div>
+    <body>
 
-    <h1 style="text-align: center;">Command Injection - Patches</h1>
-    <p style="font-size: 20px;">
-        The bare minimum you want to do will be blacklisting command seperators which enable this vulnerablity.<br>
-        <img src="../images/blacklist.png" alt="Blacklisting" style="width: 450px; height: 300px;"><br>
-        The best way to patch this vulnerability is by specifying the user input. If you want to take IP address as user input, specify it's exact format.<br>
-        <img src="../images/format.png" alt="Format specification" style="width: 1000px; height: 200px;"><br>
-        By specifying the exact format of an IP address and rejecting anything else in the input, there are near-zero chances for someone to gain unwanted access now.<br>
-        You can find more about possible fixes and patches <a href="https://www.hacksplaining.com/prevention/command-execution" target="_blank" rel="noopener noreferrer nofollow">here</a>.
-    </p>
-    <p 
-    style="text-align: center; font-size: 25px;">Now, you can try this by yourselves!<br>
-    <button><a href="../index.php">Command Injection</a></button>
-    </p>
-</body>
-<!-- 
-<footer>
+        <div>
+            <style>
+                .rbutton {
+                    border-radius: 50%;
+                }
+            </style>
+            <button class="rbutton"><a href="cmd_inj.html">0</a></button>
+            <button class="rbutton"><a href="1.html">1</a></button>
+            <button class="rbutton"><a href="2.html">2</a></button>
+            <button class="rbutton"><a href="3.html">3</a></button>
+            <button><a href="../index.php">Demo</a></button>
+        </div>
+
+        <h1 style="text-align: center;">Command Injection - Patching</h1>
+        <p style="font-size: 20px;">
+            The bare minimum you want to do will be blacklisting command seperators which enable this vulnerablity.<br>
+            <img src="../images/blacklist.png" alt="Blacklisting" style="width: 450px; height: 300px;"><br>
+            The best way to patch this vulnerability is by specifying the user input. If you want to take IP address as
+            user input, specify it's exact format.<br>
+            <img src="../images/format.png" alt="Format specification" style="width: 1000px; height: 200px;"><br>
+            By specifying the exact format of an IP address and rejecting anything else in the input, there are
+            near-zero chances for someone to gain unwanted access now.<br>
+            You can find more about possible fixes and patches <a
+                href="https://www.hacksplaining.com/prevention/command-execution" target="_blank"
+                rel="noopener noreferrer nofollow">here</a>.
+        </p>
+        <p style="font-size: 25px;">Now, you can try this by yourselves!<br>
+            <button><a href="../index.php">Command Injection</a></button>
+        </p>
+    </body>
+    
+    <!-- <footer>
     <button><a href="./3.html">Next</a></button>
-</footer> -->
+    </footer> -->
 </center>
+
 </html>

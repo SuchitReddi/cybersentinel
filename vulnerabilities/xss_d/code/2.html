@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<center>
+
+    <head>
+        <meta charset="utf-8">
+        <title>XSS-DOM</title>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="author" content="Suchit Reddi">
+    </head>
+
+    <body>
+        <div>
+            <style>
+                .rbutton {
+                    border-radius: 50%;
+                }
+            </style>
+            <button class="rbutton"><a href="xss-dom.html">0</a></button>
+            <button class="rbutton"><a href="1.html">1</a></button>
+            <button class="rbutton"><a href="2.html">2</a></button>
+            <button class="rbutton"><a href="3.html">3</a></button>
+            <button><a href="../index.php">Demo</a></button>
+        </div>
+
+        <h1>DOM-based Cross-Site Scripting - Vulnerable Code</h1>
+        <p style="font-size: 20px;">
+            This form doesn't validate the input url for any scripts. This allows the user to input any malicious code as scripts.<br>
+            <img src="../images/source.png" alt="Source code" style="width: 700px; height: 330px;"><br>
+            You can filter out words like <code>`script`</code> or else specify the exact options and take no other options, which isn't always possible.<br>
+        </p>
+    </body>
+
+    <footer>
+        <button><a href="./3.html">Next</a></button>
+    </footer>
+</center>
+
+</html>
