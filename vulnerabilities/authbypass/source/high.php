@@ -9,7 +9,7 @@ Have a look at this file for possible vulnerabilities:
 
 */
 
-if (dvwaCurrentUser() != "admin") {
+if (sentinelCurrentUser() != "admin") {
 	print "Unauthorised";
 	http_response_code(403);
 	exit;

@@ -1,17 +1,17 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: Stored Cross Site Scripting (XSS)' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'xss_s';
 $page[ 'help_button' ]   = 'xss_s';
 $page[ 'source_button' ] = 'xss_s';
 
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
 if (array_key_exists ("btnClear", $_POST)) {
 	$query  = "TRUNCATE guestbook;";
@@ -19,7 +19,7 @@ if (array_key_exists ("btnClear", $_POST)) {
 }
 
 $vulnerabilityFile = '';
-switch( dvwaSecurityLevelGet() ) {
+switch( sentinelSecurityLevelGet() ) {
 	case 'low':
 		$vulnerabilityFile = 'low.php';
 		break;
@@ -34,7 +34,7 @@ switch( dvwaSecurityLevelGet() ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/xss_s/source/{$vulnerabilityFile}";
+require_once SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/xss_s/source/{$vulnerabilityFile}";
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
@@ -69,19 +69,19 @@ $page[ 'body' ] .= "
 	</div>
 	<br />
 
-	" . dvwaGuestbook() . "
+	" . sentinelGuestbook() . "
 	<br />
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/xss-filter-evasion-cheatsheet' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Cross-site_scripting' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'http://www.cgisecurity.com/xss-faq.html' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'http://www.scriptalert1.com/' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/xss-filter-evasion-cheatsheet' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Cross-site_scripting' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'http://www.cgisecurity.com/xss-faq.html' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'http://www.scriptalert1.com/' ) . "</li>
 	</ul>
 </div>\n";
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>

@@ -2,9 +2,9 @@
 In case I get round to adding MS SQL support, this creates and populates the tables.
 */
 
-CREATE DATABASE dvwa;
+CREATE DATABASE sentinel;
 
-USE dvwa;
+USE sentinel;
 
 CREATE TABLE users (user_id INT PRIMARY KEY,first_name VARCHAR(15),last_name VARCHAR(15), [user] VARCHAR(15), password VARCHAR(32),avatar VARCHAR(70), last_login DATETIME, failed_login INT);
 
@@ -12,4 +12,4 @@ INSERT INTO users VALUES ('1','admin','admin','admin',CONVERT(NVARCHAR(32),HashB
 
 CREATE TABLE guestbook (comment_id INT IDENTITY(1,1) PRIMARY KEY, comment VARCHAR(300), name VARCHAR(100),2);
 
-INSERT INTO guestbook (comment, name) VALUES ('This is a test comment.','test');
+INSERT INTO guestbook (comment, name) VALUES ('I might store my malicious code here. Just for sometime, I promise!','Dear User!');

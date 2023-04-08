@@ -7,7 +7,7 @@ import time
 def get_php_files():
     patterns = ["*.php", "*/*.php", "*/*/*.php"]
     files = []
-    ignore_files = ["dvwa/includes/Parsedown.php"]
+    ignore_files = ["sentinel/includes/Parsedown.php"]
     for pattern in patterns:
         files.extend(glob.glob(pattern))
     for ignore_file in ignore_files:

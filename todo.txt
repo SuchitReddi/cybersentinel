@@ -1,1 +1,3 @@
-Change div#container in /dvwa/css/main.css to make it full width and in center
+Add setupw to instructions.php and all the front facing pages.
+
+Write the readme.

@@ -10,7 +10,7 @@ if( isset( $_GET[ 'Submit' ] ) ) {
 	// Was a number entered?
 	if(is_numeric( $id )) {
 		$id = intval ($id);
-		switch ($_DVWA['SQLI_DB']) {
+		switch ($_SENTINEL['SQLI_DB']) {
 			case MYSQL:
 				// Check the database
 				$data = $db->prepare( 'SELECT first_name, last_name FROM users WHERE user_id = (:id) LIMIT 1;' );

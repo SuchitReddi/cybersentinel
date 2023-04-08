@@ -75,8 +75,8 @@ body: JSON.stringify({ 'id':1, "first_name": "Harry", "surname": "Hacker" })
 
 	<br />
 
-	<p>Reference: <?php echo dvwaExternalLinkUrlGet( 'https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema' ); ?></p>
-	<p>Reference: <?php echo dvwaExternalLinkUrlGet( 'https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/04-Testing_for_Bypassing_Authentication_Schema' ); ?></p>
-	<p>Reference: <?php echo dvwaExternalLinkUrlGet( 'https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication' ); ?></p>
+	<p>Reference: <?php echo sentinelExternalLinkUrlGet( 'https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema' ); ?></p>
+	<p>Reference: <?php echo sentinelExternalLinkUrlGet( 'https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/04-Testing_for_Bypassing_Authentication_Schema' ); ?></p>
+	<p>Reference: <?php echo sentinelExternalLinkUrlGet( 'https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication' ); ?></p>
 	
 </div>

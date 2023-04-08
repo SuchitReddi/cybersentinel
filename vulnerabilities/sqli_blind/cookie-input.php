@@ -1,11 +1,11 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ] = 'Blind SQL Injection Cookie Input' . $page[ 'title_separator' ].$page[ 'title' ];
 
 if( isset( $_POST[ 'id' ] ) ) {
@@ -24,7 +24,7 @@ $page[ 'body' ] .= "
 
 <button onclick=\"self.close();\">Close</button>";
 
-dvwaSourceHtmlEcho( $page );
+sentinelSourceHtmlEcho( $page );
 
 ?>
 

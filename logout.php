@@ -1,17 +1,17 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( ) );
+sentinelPageStartup( array( ) );
 
-if( !dvwaIsLoggedIn() ) {	// The user shouldn't even be on this page
-	// dvwaMessagePush( "You were not logged in" );
-	dvwaRedirect( 'login.php' );
+if( !sentinelIsLoggedIn() ) {	// The user shouldn't even be on this page
+	// sentinelMessagePush( "You were not logged in" );
+	sentinelRedirect( 'login.php' );
 }
 
-dvwaLogout();
-dvwaMessagePush( "You have logged out" );
-dvwaRedirect( 'login.php' );
+sentinelLogout();
+sentinelMessagePush( "You have logged out" );
+sentinelRedirect( 'login.php' );
 
 ?>

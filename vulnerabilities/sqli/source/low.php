@@ -4,7 +4,7 @@ if( isset( $_REQUEST[ 'Submit' ] ) ) {
 	// Get input
 	$id = $_REQUEST[ 'id' ];
 
-	switch ($_DVWA['SQLI_DB']) {
+	switch ($_SENTINEL['SQLI_DB']) {
 		case MYSQL:
 			// Check database
 			$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";
@@ -25,7 +25,7 @@ if( isset( $_REQUEST[ 'Submit' ] ) ) {
 		case SQLITE:
 			global $sqlite_db_connection;
 
-			#$sqlite_db_connection = new SQLite3($_DVWA['SQLITE_DB']);
+			#$sqlite_db_connection = new SQLite3($_SENTINEL['SQLITE_DB']);
 			#$sqlite_db_connection->enableExceptions(true);
 
 			$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";

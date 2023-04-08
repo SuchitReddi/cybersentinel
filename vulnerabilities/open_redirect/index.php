@@ -1,18 +1,18 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: Open HTTP Redirect' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'open_redirect';
 $page[ 'help_button' ]   = 'open_redirect';
 $page[ 'source_button' ] = 'open_redirect';
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
-switch( dvwaSecurityLevelGet() ) {
+switch( sentinelSecurityLevelGet() ) {
 	case 'low':
 		$link1 = "source/low.php?redirect=info.php?id=1";
 		$link2 = "source/low.php?redirect=info.php?id=2";
@@ -49,12 +49,12 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html', "OWASP Unvalidated Redirects and Forwards Cheat Sheet" ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing/04-Testing_for_Client-side_URL_Redirect', "WSTG - Testing for Client-side URL Redirect") . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://cwe.mitre.org/data/definitions/601.html', "Mitre - CWE-601: URL Redirection to Untrusted Site ('Open Redirect')" ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html', "OWASP Unvalidated Redirects and Forwards Cheat Sheet" ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing/04-Testing_for_Client-side_URL_Redirect', "WSTG - Testing for Client-side URL Redirect") . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://cwe.mitre.org/data/definitions/601.html', "Mitre - CWE-601: URL Redirection to Untrusted Site ('Open Redirect')" ) . "</li>
 	</ul>
 </div>\n";
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>

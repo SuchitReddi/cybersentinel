@@ -5,7 +5,7 @@ Only the admin user is allowed to access this page
 
 */
 
-if (dvwaCurrentUser() != "admin") {
+if (sentinelCurrentUser() != "admin") {
 	print "Unauthorised";
 	http_response_code(403);
 	exit;

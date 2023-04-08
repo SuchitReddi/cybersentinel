@@ -1,11 +1,11 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ] = 'Help' . $page[ 'title_separator' ].$page[ 'title' ];
 
 if (array_key_exists ("id", $_GET) &&
@@ -17,9 +17,9 @@ if (array_key_exists ("id", $_GET) &&
 
 	ob_start();
 	if ($locale == 'en') {
-		eval( '?>' . file_get_contents( DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/help/help.php" ) . '<?php ' );
+		eval( '?>' . file_get_contents( SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/help/help.php" ) . '<?php ' );
 	} else {
-		eval( '?>' . file_get_contents( DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/help/help.{$locale}.php" ) . '<?php ' );
+		eval( '?>' . file_get_contents( SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/help/help.{$locale}.php" ) . '<?php ' );
 	}
 	$help = ob_get_contents();
 	ob_end_clean();
@@ -32,6 +32,6 @@ $page[ 'body' ] .= "
 	{$help}
 </div>\n";
 
-dvwaHelpHtmlEcho( $page );
+sentinelHelpHtmlEcho( $page );
 
 ?>

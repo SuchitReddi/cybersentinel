@@ -1,13 +1,13 @@
 <?php
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
 /*
 On high and impossible, only the admin is allowed to retrieve the data.
 */
-if ((dvwaSecurityLevelGet() == "high" || dvwaSecurityLevelGet() == "impossible") && dvwaCurrentUser() != "admin") {
+if ((sentinelSecurityLevelGet() == "high" || sentinelSecurityLevelGet() == "impossible") && sentinelCurrentUser() != "admin") {
 	print json_encode (array ("result" => "fail", "error" => "Access denied"));
 }
 
@@ -18,7 +18,7 @@ $guestbook = '';
 $users = array();
 
 while ($row = mysqli_fetch_row($result) ) { 
-	if( dvwaSecurityLevelGet() == 'impossible' ) { 
+	if( sentinelSecurityLevelGet() == 'impossible' ) { 
 		$user_id = $row[0];
 		$first_name = htmlspecialchars( $row[1] );
 		$surname = htmlspecialchars( $row[2] );

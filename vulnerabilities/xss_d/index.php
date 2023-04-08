@@ -1,20 +1,20 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: DOM Based Cross Site Scripting (XSS)' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'xss_d';
 $page[ 'help_button' ]   = 'xss_d';
 $page[ 'source_button' ] = 'xss_d';
 
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
 $vulnerabilityFile = '';
-switch( dvwaSecurityLevelGet() ) {
+switch( sentinelSecurityLevelGet() ) {
 	case 'low':
 		$vulnerabilityFile = 'low.php';
 		break;
@@ -29,7 +29,7 @@ switch( dvwaSecurityLevelGet() ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/xss_d/source/{$vulnerabilityFile}";
+require_once SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/xss_d/source/{$vulnerabilityFile}";
 
 # For the impossible level, don't decode the querystring
 $decodeURI = "decodeURI";
@@ -37,43 +37,49 @@ if ($vulnerabilityFile == 'impossible.php') {
 	$decodeURI = "";
 }
 
-$page[ 'body' ] = <<<EOF
-<div class="body_padded">
+$page[ 'body' ] .= "
+<div class=\"body_padded\">
 	<h1>Vulnerability: DOM Based Cross Site Scripting (XSS)</h1>
 
-	<div class="vulnerable_code_area">
+	<center>
+	<button>
+    <a href=\"./code/xss-dom.html\">Tutorial</a>
+	</button>
+	</center>
+
+	<div class=\"vulnerable_code_area\">
  
  		<p>Please choose a language:</p>
 
-		<form name="XSS" method="GET">
-			<select name="default">
+		<form name=\"XSS\" method=\"GET\">
+			<select name=\"default\">
 				<script>
-					if (document.location.href.indexOf("default=") >= 0) {
-						var lang = document.location.href.substring(document.location.href.indexOf("default=")+8);
-						document.write("<option value='" + lang + "'>" + $decodeURI(lang) + "</option>");
-						document.write("<option value='' disabled='disabled'>----</option>");
+					if (document.location.href.indexOf(\"default=\") >= 0) {
+						var lang = document.location.href.substring(document.location.href.indexOf(\"default=\")+8);
+						document.write(\"<option value='\" + lang + \"'>\" + $decodeURI(lang) + \"</option>\");
+						document.write(\"<option value='' disabled='disabled'>----</option>\");
 					}
 					    
-					document.write("<option value='English'>English</option>");
-					document.write("<option value='French'>French</option>");
-					document.write("<option value='Spanish'>Spanish</option>");
-					document.write("<option value='German'>German</option>");
+					document.write(\"<option value='English'>English</option>\");
+					document.write(\"<option value='French'>French</option>\");
+					document.write(\"<option value='Spanish'>Spanish</option>\");
+					document.write(\"<option value='German'>German</option>\");
 				</script>
 			</select>
-			<input type="submit" value="Select" />
+			<input type=\"submit\" value=\"Select\" />
 		</form>
-	</div>
-EOF;
+	</div>";
 
 $page[ 'body' ] .= "
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss/' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/DOM_Based_XSS' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://www.acunetix.com/blog/articles/dom-xss-explained/' ) . "</li>
+		<li>Port Swigger: " . sentinelExternalLinkUrlGet( 'https://portswigger.net/web-security/cross-site-scripting/dom-based' ) . "</li>
+		<li>OWASP: " . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/DOM_Based_XSS' ) . "</li>
+		<li>XSS Cheat Sheet: " . sentinelExternalLinkUrlGet( 'https://portswigger.net/web-security/cross-site-scripting/cheat-sheet' ) . "</li>
+		<li>Patches and Fixes: " . sentinelExternalLinkUrlGet( 'https://www.hacksplaining.com/prevention/xss-dom' ) . "</li>
 	</ul>
 </div>\n";
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>

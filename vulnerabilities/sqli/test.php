@@ -1,6 +1,6 @@
 <?php
 $host = "192.168.0.7";
-$username = "dvwa";
+$username = "sentinel";
 $password = "password";
 
 mssql_connect($host, $username, $password);

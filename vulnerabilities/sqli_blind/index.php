@@ -1,21 +1,21 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: SQL Injection (Blind)' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'sqli_blind';
 $page[ 'help_button' ]   = 'sqli_blind';
 $page[ 'source_button' ] = 'sqli_blind';
 
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
 $method            = 'GET';
 $vulnerabilityFile = '';
-switch( dvwaSecurityLevelGet() ) {
+switch( sentinelSecurityLevelGet() ) {
 	case 'low':
 		$vulnerabilityFile = 'low.php';
 		break;
@@ -31,7 +31,7 @@ switch( dvwaSecurityLevelGet() ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/sqli_blind/source/{$vulnerabilityFile}";
+require_once SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/sqli_blind/source/{$vulnerabilityFile}";
 
 // Is PHP function magic_quotee enabled?
 $WarningHtml = '';
@@ -85,13 +85,13 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/SQL_injection' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/Blind_SQL_Injection' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://bobby-tables.com/' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/SQL_injection' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/Blind_SQL_Injection' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://bobby-tables.com/' ) . "</li>
 	</ul>
 </div>\n";
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>

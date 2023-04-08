@@ -1,20 +1,20 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: JavaScript Attacks' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'javascript';
 $page[ 'help_button' ]   = 'javascript';
 $page[ 'source_button' ] = 'javascript';
 
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
 $vulnerabilityFile = '';
-switch( dvwaSecurityLevelGet() ) {
+switch( sentinelSecurityLevelGet() ) {
 	case 'low':
 		$vulnerabilityFile = 'low.php';
 		break;
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$token = $_POST['token'];
 
 		if ($phrase == "success") {
-			switch( dvwaSecurityLevelGet() ) {
+			switch( sentinelSecurityLevelGet() ) {
 				case 'low':
 					if ($token == md5(str_rot13("success"))) {
 						$message = "<p style='color:red'>Well done!</p>";
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	}
 }
 
-if ( dvwaSecurityLevelGet() == "impossible" ) {
+if ( sentinelSecurityLevelGet() == "impossible" ) {
 $page[ 'body' ] = <<<EOF
 <div class="body_padded">
 	<h1>Vulnerability: JavaScript Attacks</h1>
@@ -102,7 +102,7 @@ $page[ 'body' ] = <<<EOF
 EOF;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/javascript/source/{$vulnerabilityFile}";
+require_once SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/javascript/source/{$vulnerabilityFile}";
 
 $page[ 'body' ] .= <<<EOF
 	</div>
@@ -111,13 +111,13 @@ EOF;
 $page[ 'body' ] .= "
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://www.w3schools.com/js/' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://www.youtube.com/watch?v=cs7EQdWO5o0&index=17&list=WL' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://ponyfoo.com/articles/es6-proxies-in-depth' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://www.w3schools.com/js/' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://www.youtube.com/watch?v=cs7EQdWO5o0&index=17&list=WL' ) . "</li>
+		<li>" . sentinelExternalLinkUrlGet( 'https://ponyfoo.com/articles/es6-proxies-in-depth' ) . "</li>
 	</ul>
 	<p><i>Module developed by <a href='https://twitter.com/digininja'>Digininja</a>.</i></p>
 </div>\n";
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>

@@ -1,19 +1,17 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/Parsedown.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/Parsedown.php';
 
-dvwaPageStartup( array( ) );
+sentinelPageStartup( array( ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Instructions' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'instructions';
 
 $docs = array(
 	'readme'         => array( 'type' => 'markdown', 'legend' => 'Read Me', 'file' => 'README.md' ),
-	'PDF'            => array( 'type' => 'html' ,'legend' => 'PDF Guide', 'file' => 'docs/pdf.html' ),
-	'changelog'      => array( 'type' => 'markdown', 'legend' => 'Change Log', 'file' => 'CHANGELOG.md' ),
 	'copying'        => array( 'type' => 'markdown', 'legend' => 'Copying', 'file' => 'COPYING.txt' ),
 );
 
@@ -23,7 +21,7 @@ if( !array_key_exists( $selectedDocId, $docs ) ) {
 }
 $readFile = $docs[ $selectedDocId ][ 'file' ];
 
-$instructions = file_get_contents( DVWA_WEB_PAGE_TO_ROOT.$readFile );
+$instructions = file_get_contents( SENTINEL_WEB_PAGE_TO_ROOT.$readFile );
 
 if ($docs[ $selectedDocId ]['type'] == "markdown") {
 	$parsedown = new ParseDown();
@@ -32,7 +30,7 @@ if ($docs[ $selectedDocId ]['type'] == "markdown") {
 
 /*
 function urlReplace( $matches ) {
-	return dvwaExternalLinkUrlGet( $matches[1] );
+	return sentinelExternalLinkUrlGet( $matches[1] );
 }
 
 // Make links and obfuscate the referer...
@@ -62,6 +60,6 @@ $page[ 'body' ] .= "
 	</span>
 </div>";
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>

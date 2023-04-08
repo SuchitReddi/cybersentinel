@@ -4,7 +4,7 @@ if( isset( $_SESSION [ 'id' ] ) ) {
 	// Get input
 	$id = $_SESSION[ 'id' ];
 
-	switch ($_DVWA['SQLI_DB']) {
+	switch ($_SENTINEL['SQLI_DB']) {
 		case MYSQL:
 			// Check database
 			$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id' LIMIT 1;";

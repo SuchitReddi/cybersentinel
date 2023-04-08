@@ -1,20 +1,20 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: Authorisation Bypass' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'authbypass';
 $page[ 'help_button' ]   = 'authbypass';
 $page[ 'source_button' ] = 'authbypass';
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
 $method            = 'GET';
 $vulnerabilityFile = '';
-switch( dvwaSecurityLevelGet() ) {
+switch( sentinelSecurityLevelGet() ) {
 	case 'low':
 		$vulnerabilityFile = 'low.php';
 		break;
@@ -30,7 +30,7 @@ switch( dvwaSecurityLevelGet() ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/authbypass/source/{$vulnerabilityFile}";
+require_once SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/authbypass/source/{$vulnerabilityFile}";
 
 $page[ 'body' ] .= '
 <div class="body_padded">
@@ -72,6 +72,6 @@ $page[ 'body' ] .= '
 	</div>
 </div>';
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>

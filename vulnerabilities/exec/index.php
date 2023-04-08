@@ -1,20 +1,20 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'SENTINEL_WEB_PAGE_TO_ROOT', '../../' );
+require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated' ) );
+sentinelPageStartup( array( 'authenticated' ) );
 
-$page = dvwaPageNewGrab();
+$page = sentinelPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: Command Injection' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'exec';
 $page[ 'help_button' ]   = 'exec';
 $page[ 'source_button' ] = 'exec';
 
-dvwaDatabaseConnect();
+sentinelDatabaseConnect();
 
 $vulnerabilityFile = '';
-switch( dvwaSecurityLevelGet() ) {
+switch( sentinelSecurityLevelGet() ) {
 	case 'low':
 		$vulnerabilityFile = 'low.php';
 		break;
@@ -29,15 +29,17 @@ switch( dvwaSecurityLevelGet() ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/exec/source/{$vulnerabilityFile}";
+require_once SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/exec/source/{$vulnerabilityFile}";
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
 	<h1>Vulnerability: Command Injection</h1>
 
+	<center>
 	<button>
     <a href=\"./code/cmd_inj.html\">Tutorial</a>
 	</button>
+	</center>
 
 	<div class=\"vulnerable_code_area\">
 		<h2>Ping a device</h2>
@@ -59,13 +61,14 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://www.scribd.com/doc/2530476/Php-Endangers-Remote-Code-Execution' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'http://www.ss64.com/bash/' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'http://www.ss64.com/nt/' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/Command_Injection' ) . "</li>
+		<li> Port Swigger: " . sentinelExternalLinkUrlGet( 'https://portswigger.net/web-security/os-command-injection' ) . "</li>
+		<li> OWASP: " . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/Command_Injection' ) . "</li>
+		<li> Bash commands: " . sentinelExternalLinkUrlGet( 'http://www.ss64.com/bash/' ) . "</li>
+		<li> Windows commands: " . sentinelExternalLinkUrlGet( 'http://www.ss64.com/nt/' ) . "</li>
+		<li> Patches and Fixes: " . sentinelExternalLinkUrlGet( 'https://www.hacksplaining.com/prevention/command-execution' ) . "</li>
 	</ul>
 </div>\n";
 
-dvwaHtmlEcho( $page );
+sentinelHtmlEcho( $page );
 
 ?>
