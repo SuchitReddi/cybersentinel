@@ -223,6 +223,7 @@ function sentinelHtmlEcho( $pPage ) {
 	if( sentinelIsLoggedIn() ) {
 		$menuBlocks[ 'home' ][] = array( 'id' => 'home', 'name' => 'Home', 'url' => '.' );
 		$menuBlocks[ 'home' ][] = array( 'id' => 'instructions', 'name' => 'Instructions', 'url' => 'instructions.php' );
+		$menuBlocks[ 'home' ][] = array( 'id' => 'tutorials', 'name' => 'Tutorials', 'url' => 'tutorials.php' );
 		$menuBlocks[ 'home' ][] = array( 'id' => 'setup', 'name' => 'Setup / Reset DB', 'url' => 'setup.php' );
 	}
 	else {
@@ -254,7 +255,7 @@ function sentinelHtmlEcho( $pPage ) {
 
 	$menuBlocks[ 'meta' ] = array();
 	if( sentinelIsLoggedIn() ) {
-		$menuBlocks[ 'meta' ][] = array( 'id' => 'security', 'name' => 'Difficulty', 'url' => 'security.php' );
+		$menuBlocks[ 'meta' ][] = array( 'id' => 'difficulty', 'name' => 'Difficulty', 'url' => 'difficulty.php' );
 		$menuBlocks[ 'meta' ][] = array( 'id' => 'phpinfo', 'name' => 'PHP Info', 'url' => 'phpinfo.php' );
 	}
 	$menuBlocks[ 'meta' ][] = array( 'id' => 'about', 'name' => 'About', 'url' => 'about.php' );
