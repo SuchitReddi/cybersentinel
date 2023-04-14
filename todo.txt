@@ -2,4 +2,6 @@ Add setupw to instructions.php and all the front facing pages.
 
 Write the readme.
 
+Add consequences of each attack
+
 Add dark mode (change background from white to black, then text color accordingly)

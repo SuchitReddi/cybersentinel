@@ -33,6 +33,12 @@ $page[ 'body' ] = <<<EOF
 <div class="body_padded">
 	<h1>Vulnerability: Content Security Policy (CSP) Bypass</h1>
 
+	<center>
+	<button>
+    <a href=\"./code/\">Tutorial</a>
+	</button>
+	</center>
+	
 	<div class="vulnerable_code_area">
 EOF;
  

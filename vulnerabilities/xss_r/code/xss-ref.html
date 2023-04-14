@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<center>
+
+    <head>
+        <meta charset="utf-8">
+        <title>XSS-Reflected</title>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="author" content="Suchit Reddi">
+    </head>
+
+    <body>
+
+        <div>
+            <style>
+                .rbutton {
+                    border-radius: 50%;
+                }
+            </style>
+            <button class="rbutton"><a href="xss-ref.html">0</a></button>
+            <button class="rbutton"><a href="1.html">1</a></button>
+            <button class="rbutton"><a href="2.html">2</a></button>
+            <button class="rbutton"><a href="3.html">3</a></button>
+            <button><a href="../index.php">Demo</a></button>
+        </div>
+
+        <h1>Reflected Cross-Site Scripting - Intro</h1>
+        <p style="font-size:25px;">
+            Reflected XSS (also called “type-1 XSS”) occurs when an application receives data in an HTTP request and
+            includes that data within the immediate response in an unsafe way. The attacker injects a malicious script
+            into the unsanitized code, and crafts a malicious link which can reveal sensitive information like cookies.
+            Then, this url is sent to the victim via external sources like mail.<br><br>
+            This vulnerability exploits the trust placed in popular websites and applications by browsers and users.
+            When a user is tricked into clicking on a malicious link, the injected code travels to the vulnerable web
+            site, which reflects the attack back to the user's browser. The browser then executes the code because it 
+            came from a “trusted” server.<br><br>
+            This vulenrability is most common, but very dangerous if left unattended. Many big companies like 
+            Facebook, Twitter, Adobe, Uber, and Philips fell victim to Reflected XSS attacks.<br><br>            
+            It's a non persistent attack, because it's carried out through a single request/response cycle, i.e,
+            all it takes is a victim clicking on the malicious link.<br><br>
+            This vulnerability is commonly found in site search engines. If the user input in the url doesn't escape
+            HTML control characters, XSS flaws will ensue.<br><br>
+        </p>
+    </body>
+
+    <footer>
+        <button><a href="./1.html">Next</a></button>
+    </footer>
+</center>
+
+</html>

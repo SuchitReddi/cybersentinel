@@ -40,6 +40,12 @@ $page[ 'body' ] .= "
 <div class=\"body_padded\">
 	<h1>Vulnerability: Stored Cross Site Scripting (XSS)</h1>
 
+	<center>
+	<button>
+    <a href=\"./code/\">Tutorial</a>
+	</button>
+	</center>
+	
 	<div class=\"vulnerable_code_area\">
 		<form method=\"post\" name=\"guestform\" \">
 			<table width=\"550\" border=\"0\" cellpadding=\"2\" cellspacing=\"1\">

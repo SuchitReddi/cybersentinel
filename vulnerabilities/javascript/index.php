@@ -77,6 +77,12 @@ $page[ 'body' ] = <<<EOF
 <div class="body_padded">
 	<h1>Vulnerability: JavaScript Attacks</h1>
 
+	<center>
+	<button>
+    <a href=\"./code/\">Tutorial</a>
+	</button>
+	</center>
+	
 	<div class="vulnerable_code_area">
 	<p>
 		You can never trust anything that comes from the user or prevent them from messing with it and so there is no impossible level.
@@ -87,6 +93,12 @@ $page[ 'body' ] = <<<EOF
 <div class="body_padded">
 	<h1>Vulnerability: JavaScript Attacks</h1>
 
+	<center>
+	<button>
+    <a href=\"./code/\">Tutorial</a>
+	</button>
+	</center>
+	
 	<div class="vulnerable_code_area">
 	<p>
 		Submit the word "success" to win.

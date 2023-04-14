@@ -35,6 +35,12 @@ $page[ 'body' ] .= "
 <div class=\"body_padded\">
 	<h1>Vulnerability: Open HTTP Redirect</h1>
 
+	<center>
+	<button>
+    <a href=\"./code/\">Tutorial</a>
+	</button>
+	</center>
+	
 	<div class=\"vulnerable_code_area\">
 		<h2>Hacker History</h2>
 		<p>

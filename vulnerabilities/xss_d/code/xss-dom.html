@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <center>
-<head>
-    <meta charset="utf-8">
-    <title>XSS-DOM</title>
-    <meta name="viewport" content="width=device-width, initial scale=1">
-    <meta name="author" content="Suchit Reddi">
-</head>
 
-<body>
+    <head>
+        <meta charset="utf-8">
+        <title>XSS-DOM</title>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="author" content="Suchit Reddi">
+    </head>
 
-    <div>
-        <style>
-            .rbutton {
-                border-radius: 50%;
-            }
-        </style>
-        <button class="rbutton"><a href="xss-dom.html">0</a></button>
-        <button class="rbutton"><a href="1.html">1</a></button>
-        <button class="rbutton"><a href="2.html">2</a></button>
-        <button class="rbutton"><a href="3.html">3</a></button>
-        <button><a href="../index.php">Demo</a></button>
-    </div>
+    <body>
 
-    <h1>DOM-based Cross-Site Scripting - Intro</h1> <!--center-->
-    <p style="font-size:25px;">
-        Cross-Site scripting redirects users of a vulnerable web application to a malicious site. This attack doesn't target the application directly, but the its users.<br><br>
-        Web applications of famous companies like British Airways, Fortnite, eBay were vulnerable to XSS in the past.<br><br>
-        Imagine that you visited a popular website (something like Amazon, Google). You trust the brand name and believe that the website you're visiting is authentic. But what if it is a very detailed knock off!<br><br>
-        XSS makes these types of situations a reality. 
-        
-    </p>
-</body>
+        <div>
+            <style>
+                .rbutton {
+                    border-radius: 50%;
+                }
+            </style>
+            <button class="rbutton"><a href="xss-dom.html">0</a></button>
+            <button class="rbutton"><a href="1.html">1</a></button>
+            <button class="rbutton"><a href="2.html">2</a></button>
+            <button class="rbutton"><a href="3.html">3</a></button>
+            <button><a href="../index.php">Demo</a></button>
+        </div>
 
-<footer>
-    <button><a href="./1.html">Next</a></button>
-</footer>
+        <h1>DOM-based Cross-Site Scripting - Intro</h1>
+        <p style="font-size:25px;">
+            DOM (Document Object Model) is an API for HTML and XML documents. It defines the logical structure of
+            documents, and how they are accessed and manipulated.<br><br>
+            In XSS-DOM (also called “type-0 XSS”), the attack payload is executed by modifying the DOM “environment” in
+            the victim's browser used by the original client side script, so that the client side code runs in an
+            “unexpected” manner. That is, the page itself (HTTP response) does not change, but the client side code
+            contained in the page executes differently due to the malicious modifications that have occurred in the DOM
+            environment.<br><br>
+            This is in contrast to other XSS attacks (stored or reflected), where the attack payload is placed in the
+            response page (due to a server side flaw).<br><br>
+            Cross-Site scripting redirects users of a vulnerable web application to a malicious site. This attack
+            doesn't target the application directly, but the its users.<br><br>
+            Web applications of famous companies like British Airways, Fortnite, eBay were vulnerable to XSS in the
+            past.<br><br>
+            Imagine that you visited a popular website (something like Amazon, Google). You trust the brand name and
+            believe that the website you're visiting is authentic. But what if it is a just a very carefully crafted
+            look alike! XSS makes these types of situations a reality.<br><br>
+        </p>
+    </body>
+
+    <footer>
+        <button><a href="./1.html">Next</a></button>
+    </footer>
 </center>
+
 </html>

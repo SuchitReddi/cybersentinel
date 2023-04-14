@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<center>
+
+    <head>
+        <meta charset="utf-8">
+        <title>XSS-Reflected</title>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="author" content="Suchit Reddi">
+    </head>
+
+    <body>
+        <div>
+            <style>
+                .rbutton {
+                    border-radius: 50%;
+                }
+            </style>
+            <button class="rbutton"><a href="xss-ref.html">0</a></button>
+            <button class="rbutton"><a href="1.html">1</a></button>
+            <button class="rbutton"><a href="2.html">2</a></button>
+            <button class="rbutton"><a href="3.html">3</a></button>
+            <button><a href="../index.php">Demo</a></button>
+        </div>
+
+        <h1>Reflected Cross-Site Scripting - Patching</h1>
+        <p style="font-size: 20px;">
+            The minimum paatch for this vulnerability is disabling the attackers by not letting them use words like
+            <code>`script`</code>.<br>
+            <img src="../images/blacklist.png" alt="Blacklisting" style="width: 600px; height: 130px;"><br>
+            Using <b>htmlspecialchars()</b> will remove any HTML controlling charaters from the HTTP request.<br>
+            <img src="../images/htmlspecialchars.png" alt="htmlspecialchars" style="width: 450px; height: 120px;"><br>
+            Add content security policies to your webpages. You can tell the browser to never execute inline
+            JavaScript, hence nullifying this attack completely. You can find more about possible fixes and patches
+            <a href="https://www.hacksplaining.com/prevention/xss-reflected" target="_blank"
+                rel="noopener noreferrer nofollow">here</a>.
+        </p>
+
+        <p style="font-size: 25px;">Now, you can try this by yourselves!<br>
+            <button><a href="../index.php">XSS-Reflected</a></button>
+        </p>
+    </body>
+
+    <!-- <footer>
+        <button><a href="./3.html">Next</a></button>
+    </footer> -->
+</center>
+
+</html>

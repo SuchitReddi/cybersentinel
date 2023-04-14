@@ -47,6 +47,12 @@ $page[ 'body' ] .= "
 <div class=\"body_padded\">
 	<h1>Vulnerability: SQL Injection (Blind)</h1>
 
+	<center>
+	<button>
+    <a href=\"./code/\">Tutorial</a>
+	</button>
+	</center>
+	
 	{$WarningHtml}
 
 	<div class=\"vulnerable_code_area\">";
