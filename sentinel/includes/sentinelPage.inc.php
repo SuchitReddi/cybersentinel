@@ -343,7 +343,7 @@ function sentinelHtmlEcho( $pPage ) {
 
 			<div id=\"header\">
 
-				<img src=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/images/logo.png\" alt=\"Cyber Sentinel\" />
+				<img src=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/images/logo.png\" alt=\"Cyber Sentinel\" style=\"width: 100px;\"/>
 
 			</div>
 

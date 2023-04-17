@@ -79,7 +79,7 @@ $page[ 'body' ] = <<<EOF
 
 	<center>
 	<button>
-    <a href=\"./code/\">Tutorial</a>
+    <a href=\"./code/">Tutorial</a>
 	</button>
 	</center>
 	

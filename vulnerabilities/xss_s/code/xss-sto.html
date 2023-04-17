@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Title</title> <!--Change-->
+        <title>XSS-Stored</title>
         <meta name="viewport" content="width=device-width, initial scale=1">
         <meta name="author" content="Suchit Reddi">
     </head>
@@ -17,16 +17,23 @@
                     border-radius: 50%;
                 }
             </style>
-            <button class="rbutton"><a href="">0</a></button> <!--Change-->
+            <button class="rbutton"><a href="xss-sto.html">0</a></button>
             <button class="rbutton"><a href="1.html">1</a></button>
             <button class="rbutton"><a href="2.html">2</a></button>
             <button class="rbutton"><a href="3.html">3</a></button>
             <button><a href="../index.php">Demo</a></button>
         </div>
 
-        <h1>Title - Intro</h1> <!--Change-->
+        <h1>Stored Cross-Site Scripting - Intro</h1>
         <p style="font-size:25px;">
-            
+            Stored XSS (also called second-order or persistent XSS) occurs when an application receives malicious script
+            and stores it in the page's database in the form of HTTP requests used for comments section and such.<br><br>
+            There is no way for the victim to know beforehand that this site has been breached!<br><br>
+            As this malicious script is stored as a comment in the webpage, whenever a victim visits the page the whole 
+            page loads, executing the malicious script for each victim visting the site.<br><br>
+            The script needs to be injected into the site only once, but it doesn't stop executing until the database is
+            cleared or reset, thus making it a persistent attack.<br><br>
+            This vulnerability is commonly found in comments sections, chat message forums, visitor logs and such.<br><br>
         </p>
     </body>
 

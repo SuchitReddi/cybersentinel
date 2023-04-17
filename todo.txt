@@ -1,7 +1,23 @@
+Move the left menu bar to top, and add a drop down menu to place all the vulnerabilities in.
+
+Make css designs for tutorials
+
+Background image less transparent, change css for the white box (it's class in main.css is vulnerable_code_area)
+
+Link the pages of tutorials, and Write the tutorials
+
+Name the links in More Information part of each vulnerability (present in index.php of each vulnerability)
+
+The menu bar buttons should also be made clickable.
+
+Change the images in dom based xss attack.
+
+This playlist has demonstrations of all these attacks (https://www.youtube.com/playlist?list=PLHUKi1UlEgOJLPSFZaFKMoexpM6qhOb4Q)
+
+Add dark mode (change background from white to black, then text color accordingly)
+
 Add setupw to instructions.php and all the front facing pages.
 
 Write the readme.
 
 Add consequences of each attack
-
-Add dark mode (change background from white to black, then text color accordingly)

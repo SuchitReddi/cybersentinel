@@ -42,7 +42,7 @@ $page[ 'body' ] .= "
 
 	<center>
 	<button>
-    <a href=\"./code/\">Tutorial</a>
+    <a href=\"./code/xss-sto.html\">Tutorial</a>
 	</button>
 	</center>
 	
@@ -51,11 +51,11 @@ $page[ 'body' ] .= "
 			<table width=\"550\" border=\"0\" cellpadding=\"2\" cellspacing=\"1\">
 				<tr>
 					<td width=\"100\">Name *</td>
-					<td><input name=\"txtName\" type=\"text\" size=\"30\" maxlength=\"10\"></td>
+					<td><input name=\"txtName\" type=\"text\" size=\"30\"></td>
 				</tr>
 				<tr>
 					<td width=\"100\">Message *</td>
-					<td><textarea name=\"mtxMessage\" cols=\"50\" rows=\"3\" maxlength=\"50\"></textarea></td>
+					<td><textarea name=\"mtxMessage\" cols=\"50\" rows=\"3\"></textarea></td>
 				</tr>
 				<tr>
 					<td width=\"100\">&nbsp;</td>
@@ -80,11 +80,10 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss' ) . "</li>
-		<li>" . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/xss-filter-evasion-cheatsheet' ) . "</li>
-		<li>" . sentinelExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Cross-site_scripting' ) . "</li>
-		<li>" . sentinelExternalLinkUrlGet( 'http://www.cgisecurity.com/xss-faq.html' ) . "</li>
-		<li>" . sentinelExternalLinkUrlGet( 'http://www.scriptalert1.com/' ) . "</li>
+		<li>Port Swigger: " . sentinelExternalLinkUrlGet( 'https://portswigger.net/web-security/cross-site-scripting/stored' ) . "</li>
+		<li>OWASP: " . sentinelExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss' ) . "</li>
+		<li>Wikipedia: " . sentinelExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Cross-site_scripting' ) . "</li>
+		<li>Patches and Fixes: " . sentinelExternalLinkUrlGet( 'https://www.hacksplaining.com/prevention/xss-stored' ) . "</li>
 	</ul>
 </div>\n";
 

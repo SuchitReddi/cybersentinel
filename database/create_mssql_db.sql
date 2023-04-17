@@ -12,4 +12,4 @@ INSERT INTO users VALUES ('1','admin','admin','admin',CONVERT(NVARCHAR(32),HashB
 
 CREATE TABLE guestbook (comment_id INT IDENTITY(1,1) PRIMARY KEY, comment VARCHAR(300), name VARCHAR(100),2);
 
-INSERT INTO guestbook (comment, name) VALUES ('I might store my malicious code here. Just for sometime, I promise!','Dear User!');
+INSERT INTO guestbook (comment, name) VALUES ('I might store my malicious code here. Just for a little while, I promise!','Dear User!');

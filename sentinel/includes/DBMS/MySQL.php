@@ -74,7 +74,7 @@ sentinelMessagePush( "'guestbook' table was created." );
 
 
 // Insert data into 'guestbook'
-$insert = "INSERT INTO guestbook VALUES ('1','I might store my malicious code here. Just for sometime, I promise!','Dear User!');";
+$insert = "INSERT INTO guestbook VALUES ('1','I might store my malicious code here. Just for a little while, I promise!','Dear User!');";
 if( !mysqli_query($GLOBALS["___mysqli_ston"],  $insert ) ) {
 	sentinelMessagePush( "Data could not be inserted into 'guestbook' table<br />SQL: " . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) );
 	sentinelPageReload();

@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Title</title> <!--Change-->
+        <title>XSS-Stored</title>
         <meta name="viewport" content="width=device-width, initial scale=1">
         <meta name="author" content="Suchit Reddi">
     </head>
@@ -17,16 +17,20 @@
                     border-radius: 50%;
                 }
             </style>
-            <button class="rbutton"><a href="">0</a></button> <!--Change-->
+            <button class="rbutton"><a href="xss-sto.html">0</a></button>
             <button class="rbutton"><a href="1.html">1</a></button>
             <button class="rbutton"><a href="2.html">2</a></button>
             <button class="rbutton"><a href="3.html">3</a></button>
             <button><a href="../index.php">Demo</a></button>
         </div>
 
-        <h1>Title - Vulnerable Code</h1> <!--Change-->
+        <h1>Stored Cross-Site Scripting - Vulnerable Code</h1>
         <p style="font-size:20px;">
-            
+            The stored comment isn't validated for any malicious scripts. This allows the user to store any malicious
+            scripts in the database.<br>
+            <img src="../images/source.png" alt="Source code" style="width: 1500px; height: 350px;"><br>
+            You can filter out words like <code>`script`</code> , use htmlspecialchars() which escapes HTML controlling
+            characters, or use an Anti-CSRF token.<br>
         </p>
     </body>
 

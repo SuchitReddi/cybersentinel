@@ -80,7 +80,7 @@ echo "<!DOCTYPE html>
 
 	<br />
 
-	<p><img src=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/images/login_logo.png\" /></p>
+	<p><img src=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/images/login_logo.png\" style=\"width: 400px\" /></p>
 
 	<br />
 

@@ -18,7 +18,7 @@ $page[ 'body' ] .= "
 		<ul>
 			<li><a href=\"./vulnerabilities/exec/code/cmd_inj.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Command Injection</a></li>
 			<li><a href=\"./vulnerabilities/xss_r/code/xss-ref.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: Reflected</a></li>
-			<li><a href=\"./vulnerabilities/xss_r/code/xss-sto.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: Stored</a></li>
+			<li><a href=\"./vulnerabilities/xss_s/code/xss-sto.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: Stored</a></li>
 			<li><a href=\"./vulnerabilities/xss_d/code/xss-dom.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: DOM</a></li>
 			<li><a href=\"./vulnerabilities/\" target=\"_blank\" rel\"noopener nofollow noreferrer\"></a></li>
 		</ul>

