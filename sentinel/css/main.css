@@ -1,15 +1,29 @@
 body {
 	margin: 0;
-	color: #2f2f2f;
+	color:  black;
 	font: 12px/15px Arial, Helvetica, sans-serif;
 	min-width: 981px;
 	height: 100%;
 	position: relative;
-	background-color: lightgray;
-	font-weight: 600;
-	background-image: url(../images/background.png);
-	background-size: cover;
+	background-image: url(./images/background.png); 
+	background-size: cover; 
+	/* background-color: lightgray; */
+	font-weight: 1000;
 }
+
+
+
+/* body::before {    
+	content: "";
+	background-image: url(./images/background.png);
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.8;
+} */
 
 /* body.home {
 	background: #e7e7e7;
@@ -20,7 +34,7 @@ div.clear {
 }
 
 a {
-	color: black;
+	color: red;
 	text-decoration: underline;
 	font-weight: bold;
 }
