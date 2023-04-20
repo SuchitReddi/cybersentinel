@@ -71,7 +71,7 @@ echo "<!DOCTYPE html>
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/css/login.css\" />
 
 	</head>
-
+	
 	<body>
 
 	<div id=\"wrapper\">

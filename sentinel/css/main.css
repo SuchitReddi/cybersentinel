@@ -1,14 +1,16 @@
 body {
 	margin: 0;
-	color: #2f2f2f;
-	font: 12px/15px Arial, Helvetica, sans-serif;
+	color:  black;
+	/* font-family: 'Special Elite', cursive; */
+	font-family: 'Electrolize', sans-serif;
+	font-size: 15px;
 	min-width: 981px;
 	height: 100%;
 	position: relative;
-	background-color: lightgray;
+	background-image: url(../images/background.png); 
+	background-size: contain; 
+	/* background-color: lightgray; */
 	font-weight: 600;
-	background-image: url(../images/background.png);
-	background-size: cover;
 }
 
 /* body.home {
@@ -20,7 +22,7 @@ div.clear {
 }
 
 a {
-	color: black;
+	color: maroon;
 	text-decoration: underline;
 	font-weight: bold;
 }
@@ -62,16 +64,19 @@ h6 {
 }
 
 h1 {
-	font-size: 200%;
+	font-size: 180%;
+	margin: 0%;
 }
 
 h2 {
-	font-size: 160%;
+	font-size: 150%;
+	margin: 0%;
 }
 
 
 h3 {
 	font-size: 130%;
+	margin: 0%;
 }
 
 hr {
@@ -81,13 +86,13 @@ hr {
 	height: 1px;
 }
 
-ul.menuBlocks {
+/* ul.menuBlocks {
 	list-style-type: none;
 	padding-left: 0px;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
-}
+} */
 
 ul+ul,
 ul+ul.menuBlocks,
@@ -129,34 +134,36 @@ div#container {
 	margin-right: auto;
 	/* background: #f4f4f4; */
 	border-radius: 15px;
-	font-size: 13px;
+	/* font-size: 20px; */
 	/* background-color: #0040ff;
 	background-image: url(../images/lock2.jpg);
 	background-size: contain; */
 }
 
 div#header {
-	padding: 10px;
 	overflow: hidden;
-	background: #2f2f2f;
-	border-bottom: 5px solid #0040ff;
 	text-align: center;
+	/* background: #2f2f2f;
+	padding: 10px;
+	border-bottom: 5px solid #0040ff; */
+	
 }
 
 div#system_info {
-	padding: 10px;
+	padding-left: 10px;
 	text-align: right;
-	color: #ffffff;
+	color: gold;
+	font-size: 12px;
 }
 
 div#main_body {
 	float: left;
-	width: 81%;
+	width: 100%;
 	/* background: #0040ff; */
 	background-color: rgba(134, 230, 235, 0.5);
 	padding-top: 20px;
 	padding-bottom: 10px;
-	font-size: 13px;
+	/* font-size: 13px; */
 	border-radius: 20px;
 }
 
@@ -166,28 +173,62 @@ div.body_padded {
 }
 
 div#main_menu {
-	float: left;
-	width: 200px;
+	/* float: left; */
+	width: 100%;
 	height: 100%;
 	/* background-color: #0040ff; */
 	/* background-color: rgba(134, 230, 235, 0.5); */
 }
 
-div#main_menu li {
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 12px;
-	/* border-color: #D2D4D4 #6B778C #6B778C #D2D4D4; */
-	padding: 3px 10px 3px 10px;
-	margin-bottom: 10px;
-	background-color: black;
-
+  #main_menu_padded .menuBlocks {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-div#main_menu li a {
-	color: #0040ff;
-	text-decoration: none;
-	text-decoration: none;
+#main_menu_padded .menuBlocks > li {
+    margin-right: 20px;
+    position: relative;
+	background-color: black;
+	border-radius: 8px;
+}
+
+#main_menu_padded .menuBlocks > li:last-child {
+    margin-right: 0;
+}
+
+#main_menu_padded .vulnerabilities-menu > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#main_menu_padded .vulnerabilities-menu:hover > ul {
+    display: block;
+}
+
+#main_menu_padded .arrow {
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+#main_menu_padded li a {
+    text-decoration: none;
+    color: #0040ff;
+    display: inline-block;
+    padding: 5px;
+}
+
+#main_menu_padded li a:hover {
+    background-color: black;
+	color: darkgreen;
+	border-radius: 8px;
 }
 
 div#main_menu li.selected {
@@ -205,24 +246,38 @@ div#main_menu li:hover {
 	cursor: pointer;
 }
 
-div#main_menu li:hover a {
+/* div#main_menu li:hover a {
 	color: darkgreen;
-}
+} */
 
 div#main_menu_padded {
 	padding: 15px;
+	/* background-color: white; */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
+
+.vulnerabilities-menu ul {
+	display: none;
+  }
+  
+  .vulnerabilities-menu:hover ul {
+	display: block;
+  }
+  
 
 /* .sidebutt{
     background-color: lightblue;
 } */
 
 div#footer {
-	color: #999999;
+	text-align: center;
+	/* color: #999999;
 	background: #2f2f2f;
 	padding: 10px;
-	text-align: center;
-	border-top: 5px solid #0040ff;
+	border-top: 5px solid #0040ff; */
 }
 
 input.popup_button {
@@ -236,12 +291,13 @@ input.popup_button {
 }
 
 div.vulnerable_code_area {
-	background-color: #f8fafa;
+	background-color: white;
 	border-width: 1px;
 	border-style: solid;
+	border-radius: 30px;
 	border-color: #000000;
 	padding: 10px 20px 10px 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 div#guestbook_comments {
@@ -269,7 +325,7 @@ div.submenu {
 	border-bottom: 1px solid #000000;
 	margin-bottom: 15px;
 	padding: 4px 0px 10px 0px;
-	font-size: 13px;
+	/* font-size: 13px; */
 }
 
 span.submenu_item {

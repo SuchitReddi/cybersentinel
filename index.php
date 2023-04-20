@@ -1,46 +1,48 @@
 <?php
 
-define( 'SENTINEL_WEB_PAGE_TO_ROOT', '' );
+define('SENTINEL_WEB_PAGE_TO_ROOT', '');
 require_once SENTINEL_WEB_PAGE_TO_ROOT . 'sentinel/includes/sentinelPage.inc.php';
 
-sentinelPageStartup( array( 'authenticated' ) );
+sentinelPageStartup(array('authenticated'));
 
 $page = sentinelPageNewGrab();
-$page[ 'title' ]   = 'Welcome' . $page[ 'title_separator' ].$page[ 'title' ];
-$page[ 'page_id' ] = 'home';
+$page['title']   = 'Welcome' . $page['title_separator'] . $page['title'];
+$page['page_id'] = 'home';
 
-$page[ 'body' ] .= "
+$page['body'] .= "
 <div class=\"body_padded\">
-	<h1>Welcome to Cyber Sentinel!</h1>
-	<p>Cyber Sentinel is a PHP/MySQL web application that is damn vulnerable. Its main goal is to be an aid for security professionals to test their skills and tools in a legal environment, help web developers better understand the processes of securing web applications and to aid both students & teachers to learn about web application security in a controlled class room environment.</p>
-	<p>The aim of Cyber Sentinel is to <em>practice some of the most common web vulnerabilities</em>, with <em>various levels of difficultly</em>, with a simple straightforward interface.</p>
+	<h1 style=\"text-align: center;\">Welcome to Cyber Sentinel!</h1>
+	<p>Cyber Sentinel is a PHP/MySQL web application that is made intentionally vulnerable! The aim of this project is to increase cyber awareness among modern
+	web developers.<br>
+	Incorporating security during development stage itself is a good practice which isn't always possible due to deadlines. So, you can learn how to give your 
+	applications the minimum level of security, which is always better than leaving them unprotected. I added tutorials which will show you how to use this web 
+	application to improve or learn about different vulnerabilities step by step.</p>
+	<p>Cyber Sentinel helps you to practice some of the most common, yet dangerous web vulnerabilities, teach you their patches, with a simple interface.</p>
 	<hr />
 	<br />
 
-	<h2>General Instructions</h2>
-	<p>It is up to the user how they approach Cyber Sentinel. Either by working through every module at a fixed level, or selecting any module and working up to reach the highest level they can before moving onto the next one. There is not a fixed object to complete a module; however users should feel that they have successfully exploited the system as best as they possible could by using that particular vulnerability.</p>
-	<p>Please note, there are <em>both documented and undocumented vulnerability</em> with this software. This is intentional. You are encouraged to try and discover as many issues as possible.</p>
-	<p>There is a help button at the bottom of each page, which allows you to view hints & tips for that vulnerability. There are also additional links for further background reading, which relates to that security issue.</p>
+	<h2 style=\"text-align: center;\">Instructions</h2>
+	<p>It's up to you, how you want to approach Cyber Sentinel. I provided tutorials for the low difficulty level. I will try to add them for other levels too.<br> 
+	You can work on every module at a fixed difficulty level, or select one module and try to reach the highest level you can before moving onto the next one.
+	There is no fixed objective to complete a module, if you feel you've exploited the system thoroughly, the goal is reached!</p>
+	<p>There is a help button at the bottom to view hints & tips for that vulnerability. There are additional links for further reading on any vulnerability.</p>
 	<hr />
 	<br />
 
-	<h2>WARNING!</h2>
-	<p>Damn Vulnerable Web Application is damn vulnerable! <em>Do not upload it to your hosting provider's public html folder or any Internet facing servers</em>, as they will be compromised. It is recommend using a virtual machine (such as " . sentinelExternalLinkUrlGet( 'https://www.virtualbox.org/','VirtualBox' ) . " or " . sentinelExternalLinkUrlGet( 'https://www.vmware.com/','VMware' ) . "), which is set to NAT networking mode. Inside a guest machine, you can download and install " . sentinelExternalLinkUrlGet( 'https://www.apachefriends.org/','XAMPP' ) . " for the web server and database.</p>
+	<h2 style=\"text-align: center;\">WARNING!</h2>
+	<p>This application is vulnerable! There are many documented vulnerabilities causing more undocumented ones. <em>Do not upload it to any internet facing 
+	servers</em>, as they will be compromised.<br>
+	It is recommend using a virtual machine such as 
+	(" . sentinelExternalLinkUrlGet('https://www.virtualbox.org/', 'VirtualBox') . " or " . sentinelExternalLinkUrlGet('https://www.vmware.com/', 'VMware') ."),
+	which is set to NAT networking mode. You can download and install " . sentinelExternalLinkUrlGet('https://www.apachefriends.org/', 'XAMPP') . " 
+	for the web server and database.<br>
+	I'm trying to dockerize the application which is supposed to provide similar protection as a virtual machine, but doesn't take up as much storage.</p>
 	<br />
-	<h3>Disclaimer</h3>
-	<p>We do not take responsibility for the way in which any one uses this application (Cyber Sentinel). We have made the purposes of the application clear and it should not be used maliciously. We have given warnings and taken measures to prevent users from installing Cyber Sentinel on to live web servers. If your web server is compromised via an installation of Cyber Sentinel it is not our responsibility it is the responsibility of the person/s who uploaded and installed it.</p>
-	<hr />
-	<br />
-
-	<h2>More Training Resources</h2>
-	<p>Cyber Sentinel aims to cover the most commonly seen vulnerabilities found in today's web applications. However there are plenty of other issues with web applications. Should you wish to explore any additional attack vectors, or want more difficult challenges, you may wish to look into the following other projects:</p>
-	<ul>
-		<li>" . sentinelExternalLinkUrlGet( 'https://github.com/webpwnized/mutillidae', 'Mutillidae') . "</li>
-		<li>" . sentinelExternalLinkUrlGet( 'https://owasp.org/www-project-broken-web-applications/migrated_content', 'OWASP Broken Web Applications Project
-') . "</li>
-	</ul>
-	<hr />
-	<br />
+	<h3 style=\"text-align: center;\">Disclaimer</h3>
+	<p>I do not take responsibility for the way in which any one uses this application (Cyber Sentinel). I have made the purposes of the application clear and it
+	should not be used maliciously. I have given warnings and taken measures to prevent users from installing Cyber Sentinel on to live web servers. 
+	If any web server is compromised via an installation of Cyber Sentinel, it is not my responsibility. It is the responsibility of the person/s who uploaded and
+	installed it.</p>
 </div>";
 
-sentinelHtmlEcho( $page );
+sentinelHtmlEcho($page);

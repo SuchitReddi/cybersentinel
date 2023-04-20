@@ -1,8 +1,8 @@
 body {
-	background: #fefffe;
+	background: grey;
 	font: 12px/15px Arial, Helvetica, sans-serif;
 	line-height: 20px;
-	color: #6b6b6b;
+	color: black;
 }
 
 #wrapper {

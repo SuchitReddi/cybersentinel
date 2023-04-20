@@ -217,65 +217,6 @@ function messagesPopAllToHtml() {
 // --END (message functions)
 
 function sentinelHtmlEcho( $pPage ) {
-	$menuBlocks = array();
-
-	$menuBlocks[ 'home' ] = array();
-	if( sentinelIsLoggedIn() ) {
-		$menuBlocks[ 'home' ][] = array( 'id' => 'home', 'name' => 'Home', 'url' => '.' );
-		$menuBlocks[ 'home' ][] = array( 'id' => 'instructions', 'name' => 'Instructions', 'url' => 'instructions.php' );
-		$menuBlocks[ 'home' ][] = array( 'id' => 'tutorials', 'name' => 'Tutorials', 'url' => 'tutorials.php' );
-		$menuBlocks[ 'home' ][] = array( 'id' => 'setup', 'name' => 'Setup / Reset DB', 'url' => 'setup.php' );
-	}
-	else {
-		$menuBlocks[ 'home' ][] = array( 'id' => 'setup', 'name' => 'Setup Cyber Sentinel', 'url' => 'setup.php' );
-		$menuBlocks[ 'home' ][] = array( 'id' => 'instructions', 'name' => 'Instructions', 'url' => 'instructions.php' );
-	}
-
-	if( sentinelIsLoggedIn() ) {
-		$menuBlocks[ 'vulnerabilities' ] = array();
-		//$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'brute', 'name' => 'Brute Force', 'url' => 'vulnerabilities/brute/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'exec', 'name' => 'Command Injection', 'url' => 'vulnerabilities/exec/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_r', 'name' => 'XSS (Reflected)', 'url' => 'vulnerabilities/xss_r/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_s', 'name' => 'XSS (Stored)', 'url' => 'vulnerabilities/xss_s/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'xss_d', 'name' => 'XSS (DOM)', 'url' => 'vulnerabilities/xss_d/' );
-		//$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'csrf', 'name' => 'CSRF', 'url' => 'vulnerabilities/csrf/' );
-		//$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'fi', 'name' => 'File Inclusion', 'url' => 'vulnerabilities/fi/.?page=include.php' );
-		//$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'upload', 'name' => 'File Upload', 'url' => 'vulnerabilities/upload/' );
-		//$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'captcha', 'name' => 'Insecure CAPTCHA', 'url' => 'vulnerabilities/captcha/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'sqli', 'name' => 'SQL Injection', 'url' => 'vulnerabilities/sqli/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'sqli_blind', 'name' => 'SQL Injection (Blind)', 'url' => 'vulnerabilities/sqli_blind/' );
-		//$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'weak_id', 'name' => 'Weak Session IDs', 'url' => 'vulnerabilities/weak_id/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'csp', 'name' => 'CSP Bypass', 'url' => 'vulnerabilities/csp/' );
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'javascript', 'name' => 'JavaScript', 'url' => 'vulnerabilities/javascript/' );
-		if (sentinelCurrentUser() == "admin") {
-			$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'authbypass', 'name' => 'Authorisation Bypass', 'url' => 'vulnerabilities/authbypass/' );
-		}
-		$menuBlocks[ 'vulnerabilities' ][] = array( 'id' => 'open_redirect', 'name' => 'Open HTTP Redirect', 'url' => 'vulnerabilities/open_redirect/' );
-	}
-
-	$menuBlocks[ 'meta' ] = array();
-	if( sentinelIsLoggedIn() ) {
-		$menuBlocks[ 'meta' ][] = array( 'id' => 'difficulty', 'name' => 'Difficulty', 'url' => 'difficulty.php' );
-		$menuBlocks[ 'meta' ][] = array( 'id' => 'phpinfo', 'name' => 'PHP Info', 'url' => 'phpinfo.php' );
-	}
-	$menuBlocks[ 'meta' ][] = array( 'id' => 'about', 'name' => 'About', 'url' => 'about.php' );
-
-	if( sentinelIsLoggedIn() ) {
-		$menuBlocks[ 'logout' ] = array();
-		$menuBlocks[ 'logout' ][] = array( 'id' => 'logout', 'name' => 'Logout', 'url' => 'logout.php' );
-	}
-
-	$menuHtml = '';
-
-	foreach( $menuBlocks as $menuBlock ) {
-		$menuBlockHtml = '';
-		foreach( $menuBlock as $menuItem ) {
-			$selectedClass = ( $menuItem[ 'id' ] == $pPage[ 'page_id' ] ) ? 'selected' : '';
-			$fixedUrl = SENTINEL_WEB_PAGE_TO_ROOT.$menuItem[ 'url' ];
-			$menuBlockHtml .= "<li class=\"{$selectedClass}\"><a href=\"{$fixedUrl}\">{$menuItem[ 'name' ]}</a></li>\n";
-		}
-		$menuHtml .= "<ul class=\"menuBlocks\">{$menuBlockHtml}</ul>";
-	}
 
 	// Get security cookie --
 	$securityLevelHtml = '';
@@ -295,10 +236,10 @@ function sentinelHtmlEcho( $pPage ) {
 	}
 	// -- END (security cookie)
 
-	$userInfoHtml = '<em>Username:</em> ' . ( sentinelCurrentUser() );
-	$securityLevelHtml = "<em>Security Level:</em> {$securityLevelHtml}";
-	$localeHtml = '<em>Locale:</em> ' . ( sentinelLocaleGet() );
-	$sqliDbHtml = '<em>SQLi DB:</em> ' . ( sentinelSQLiDBGet() );
+	$userInfoHtml = 'Username: ' . ( sentinelCurrentUser() );
+	$securityLevelHtml = "Security Level: {$securityLevelHtml}";
+	$localeHtml = 'Locale: ' . ( sentinelLocaleGet() );
+	$sqliDbHtml = 'SQLi DB: ' . ( sentinelSQLiDBGet() );
 	
 
 	$messagesHtml = messagesPopAllToHtml();
@@ -342,37 +283,61 @@ function sentinelHtmlEcho( $pPage ) {
 		<div id=\"container\">
 
 			<div id=\"header\">
-
-				<img src=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/images/logo.png\" alt=\"Cyber Sentinel\" style=\"width: 100px;\"/>
-
+				<div id=\"system_info\">
+				{$systemInfoHtml}
+				</div>
+				<img src=\"/cybersentinel/sentinel/images/logo.png\" alt=\"Cyber Sentinel\" style=\"width: 100px; background: black;\"/>
 			</div>
 
-			<div id=\"main_menu\">
+			<div id=\"main_total\">
 
+				<div id=\"main_menu\">
+					
 				<div id=\"main_menu_padded\">
-				{$menuHtml}
+				<ul class=\"menuBlocks\">
+				  <li class=\"selected\"><a href=\"/cybersentinel\">Home</a></li>
+				  <li class=\"\"><a href=\"/cybersentinel/instructions.php\">Instructions</a></li>
+				  <li class=\"\"><a href=\"/cybersentinel/tutorials.php\">Tutorials</a></li>
+				  <li class=\"\"><a href=\"/cybersentinel/setup.php\">Setup / Reset DB</a></li>
+				  <li class=\"vulnerabilities-menu\">
+					<a href=\"#\">Vulnerabilities  <span class=\"arrow\">&#9660;</span></a>
+					<ul class=\"vulnerabilities-list\">
+					  <li><a href=\"/cybersentinel/vulnerabilities/exec/\">Command Injection</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/xss_r/\">XSS (Reflected)</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/xss_s/\">XSS (Stored)</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/xss_d/\">XSS (DOM)</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/sqli/\">SQL Injection</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/sqli_blind/\">SQL Injection (Blind)</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/csp/\">CSP Bypass</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/javascript/\">JavaScript</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/open_redirect/\">Open HTTP Redirect</a></li>
+					</ul>
+				  </li>
+				  <li class=\"\"><a href=\"/cybersentinel/difficulty.php\">Difficulty</a></li>
+				  <li class=\"\"><a href=\"/cybersentinel/phpinfo.php\">PHP Info</a></li>
+				  <li class=\"\"><a href=\"/cybersentinel/about.php\">About</a></li>
+				  <li class=\"\"><a href=\"/cybersentinel/logout.php\">Logout</a></li>
+				</ul>
+			</div>
+				
 				</div>
 
-			</div>
+				<div id=\"main_body\">
 
-			<div id=\"main_body\">
+					{$pPage[ 'body' ]}
+					<br /><br />
+					{$messagesHtml}
 
-				{$pPage[ 'body' ]}
-				<br /><br />
-				{$messagesHtml}
+				</div>
 
 			</div>
 
 			<div class=\"clear\">
 			</div>
 
-			<div id=\"system_info\">
-				{$systemInfoHtml}
-			</div>
-
 			<div id=\"footer\">
 
-				<p><a style=\"font-size: 15px;\" href=\"https://github.com/SuchitReddi/CyberSentinel\" target=\"_blank\" rel=\"nofollow noreferrer noopener\">Cyber Sentinel</a></p>
+				<p><a style=\"font-size: 13px; background: black;\" href=\"https://github.com/SuchitReddi/CyberSentinel\" target=\"_blank\" rel=\"nofollow noreferrer noopener\">Cyber Sentinel</a></p>
 				<script src='" . SENTINEL_WEB_PAGE_TO_ROOT . "/sentinel/js/add_event_listeners.js'></script>
 
 			</div>
