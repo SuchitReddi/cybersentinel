@@ -33,9 +33,10 @@ $page['body'] .= "
 	<p>This application is vulnerable! There are many documented vulnerabilities causing more undocumented ones. <em>Do not upload it to any internet facing 
 	servers</em>, as they will be compromised.<br>
 	It is recommend using a virtual machine such as 
-	(" . sentinelExternalLinkUrlGet('https://www.virtualbox.org/', 'VirtualBox') . " or " . sentinelExternalLinkUrlGet('https://www.vmware.com/', 'VMware') ."),
+	(" . sentinelExternalLinkUrlGet('https://www.virtualbox.org/', 'VirtualBox') . " or " . sentinelExternalLinkUrlGet('https://www.vmware.com/', 'VMware') . "),
 	which is set to NAT networking mode. You can download and install " . sentinelExternalLinkUrlGet('https://www.apachefriends.org/', 'XAMPP') . " 
-	for the web server and database.<br>
+	for the web server and database. I went a step further and dockerized the application. You can use this securely with this 
+	(" . sentinelExternalLinkUrlGet('https://hub.docker.com/repository/docker/5herl0ck/cybersentinel', 'dockerized') . " version.<br>
 	I'm trying to dockerize the application which is supposed to provide similar protection as a virtual machine, but doesn't take up as much storage.</p>
 	<br />
 	<h3 style=\"text-align: center;\">Disclaimer</h3>

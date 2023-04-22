@@ -12,8 +12,8 @@ $page[ 'page_id' ] = 'about';
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
 	<h2>About</h2>
-	<p>Cyber Sentinel is a PHP/MySQL intentionally vulnerable application.<br>
-	Its main goals are to be an aid for security professionals to test their skills and tools in a legal environment, help web developers better understand the processes of securing web applications and aid teachers/students to teach/learn web application security in a class room environment</p>
+	<p>Cyber Sentinel is a PHP/MySQL web application that is made intentionally vulnerable! The aim of this project is to increase cyber awareness among modern
+	web developers.</p>
 	<p>It is an ongoing project</p>
 
 	<h2>Links</h2>
