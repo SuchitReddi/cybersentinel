@@ -56,7 +56,7 @@ $page[ 'body' ] .= "
 	<br />
 
 	<h2>Setup Check</h2>
-
+	<br>
 	{$SERVER_NAME}<br />
 	<br />
 	{$SENTINELOS}<br />
@@ -64,12 +64,14 @@ $page[ 'body' ] .= "
 	PHP version: <em>" . phpversion() . "</em><br />
 	{$phpDisplayErrors}<br />
 	{$phpSafeMode}<br/ >
-	{$phpURLInclude}<br/ >
+
+<!--{$phpURLInclude}<br/ >
 	{$phpURLFopen}<br />
 	{$phpMagicQuotes}<br />
 	{$phpGD}<br />
 	{$phpMySQL}<br />
-	{$phpPDO}<br />
+	{$phpPDO}<br />-->
+
 	<br />
 	Backend database: <em>{$database_type_name}</em><br />
 	{$MYSQL_USER}<br />
@@ -78,22 +80,21 @@ $page[ 'body' ] .= "
 	{$MYSQL_SERVER}<br />
 	{$MYSQL_PORT}<br />
 	<br />
-	{$SENTINELRecaptcha}<br />
-	<br />
+
+<!--{$SENTINELRecaptcha}<br />-->
 	{$SENTINELUploadsWrite}<br />
-	<br />
 	<br />
 	{$bakWritable}
 	<br />
-	<i><span class=\"failure\">Status in red</span>, indicate there will be an issue when trying to complete some modules.</i><br />
+<!--<i><span class=\"failure\">Status in red</span>, indicate there will be an issue when trying to complete some modules.</i><br />
 	<br />
 	If you see disabled on either <i>allow_url_fopen</i> or <i>allow_url_include</i>, set the following in your php.ini file and restart Apache.<br />
 	<pre><code>allow_url_fopen = On
 allow_url_include = On</code></pre>
 	These are only required for the file inclusion labs so unless you want to play with those, you can ignore them.
-
-	<br /><br /><br />
-
+-->
+<!--<br /><br /><br />-->
+<br>
 	<!-- Create db button -->
 	<form action=\"#\" method=\"post\">
 		<input name=\"create_db\" type=\"submit\" value=\"Create / Reset Database\">

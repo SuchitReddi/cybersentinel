@@ -18,7 +18,8 @@ $page[ 'body' ] .= "
 
 	<h2>Links</h2>
 	<ul>
-		<li>Project Home: " . sentinelExternalLinkUrlGet( 'https://github.com/SuchitReddi/CyberSentinel' ) . "</li>
+		<li>GitHub: " . sentinelExternalLinkUrlGet( 'https://github.com/SuchitReddi/CyberSentinel' ) . "</li>
+		<li>DockerHub: " . sentinelExternalLinkUrlGet( 'https://hub.docker.com/r/5herl0ck/cybersentinel' ) . "</li>
 	</ul>
 
 	<h2>Credits</h2>
@@ -27,10 +28,8 @@ $page[ 'body' ] .= "
 	</ul>
 
 	<h2>License</h2>
-	<p>Cyber Sentinel is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.</p>
+	<p>Cyber Sentinel is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the 
+	Free Software Foundation, either version 3 of the License, or any later version.</p>
 
 	<h2>Development</h2>
 	<p>Everyone is welcome to contribute and help make Cyber Sentinel as successful as it can be.</p>
@@ -39,5 +38,3 @@ $page[ 'body' ] .= "
 sentinelHtmlEcho( $page );
 
 exit;
-
-?>

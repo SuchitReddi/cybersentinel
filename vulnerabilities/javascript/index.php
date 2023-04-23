@@ -79,7 +79,7 @@ $page[ 'body' ] = <<<EOF
 
 	<center>
 	<button>
-    <a href=\"./code/">Tutorial</a>
+    <a href="./code/">Tutorial</a>
 	</button>
 	</center>
 	
@@ -95,7 +95,7 @@ $page[ 'body' ] = <<<EOF
 
 	<center>
 	<button>
-    <a href=\"./code/\">Tutorial</a>
+    <a href="./code/">Tutorial</a>
 	</button>
 	</center>
 	
@@ -127,7 +127,6 @@ $page[ 'body' ] .= "
 		<li>" . sentinelExternalLinkUrlGet( 'https://www.youtube.com/watch?v=cs7EQdWO5o0&index=17&list=WL' ) . "</li>
 		<li>" . sentinelExternalLinkUrlGet( 'https://ponyfoo.com/articles/es6-proxies-in-depth' ) . "</li>
 	</ul>
-	<p><i>Module developed by <a href='https://twitter.com/digininja'>Digininja</a>.</i></p>
 </div>\n";
 
 sentinelHtmlEcho( $page );

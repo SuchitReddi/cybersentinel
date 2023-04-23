@@ -41,7 +41,7 @@ foreach( array( 'low', 'medium', 'high', 'impossible' ) as $securityLevel ) {
 	$selected = '';
 	if( $securityLevel == sentinelSecurityLevelGet() ) {
 		$selected = ' selected="selected"';
-		$securityLevelHtml = "<p>Security setting is currently: <em>$securityLevel</em>.<p>";
+		$securityLevelHtml = "<p>Security setting is currently: <em style=\"background: black; color: white;\">$securityLevel</em>.<p>";
 	}
 	$securityOptionsHtml .= "<option value=\"{$securityLevel}\"{$selected}>" . ucfirst($securityLevel) . "</option>";
 }
@@ -62,9 +62,9 @@ $page[ 'body' ] .= "
 		{$securityLevelHtml}
 		<p>You can set the security setting to low, medium, high or impossible. The security setting changes the vulnerability level of Cyber Sentinel:</p>
 		<ol>
-			<li> Low - This security setting is completely vulnerable and <em>has no security measures at all</em>. It's use is to be as an example of how web application vulnerabilities manifest through bad coding practices and to serve as a platform to teach or learn basic exploitation techniques.</li>
-			<li> Medium - This setting is mainly to give an example to the user of <em>bad security practices</em>, where the developer has tried but failed to secure an application. It also acts as a challenge to users to refine their exploitation techniques.</li>
-			<li> High - This option is an extension to the medium difficulty, with a mixture of <em>harder or alternative bad practices</em> to attempt to secure the code. The vulnerability may not allow the same extent of the exploitation, similar in various Capture The Flags (CTFs) competitions.</li>
+			<li> Low - It's completely vulnerable and <em>has no security measures at all</em>. It's explains how vulnerabilities manifest through bad coding practices, and learn basic exploitation techniques.</li>
+			<li> Medium - It gives an example of <em>bad security practices</em>, where the developer has tried but failed to secure an application. It also challenges users to improve their techniques.</li>
+			<li> High - It's an extension to the medium difficulty, attempting to secure the code with <em>\"harder to exploit\" bad practices</em>. This level doesn't allow exploitation using easier techniques, like in Capture The Flag (CTF) competitions.</li>
 			<li> Impossible - This setting should be <em>secure against all vulnerabilities</em>. It is used to compare the vulnerable source code to the secure source code.<br /></li>
 		</ol>
 		<select name=\"security\">

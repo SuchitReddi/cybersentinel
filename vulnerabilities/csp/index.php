@@ -55,7 +55,6 @@ $page[ 'body' ] .= "
 		<li>" . sentinelExternalLinkUrlGet( 'https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP', "Mozilla Developer Network - CSP: script-src") . "</li>
 		<li>" . sentinelExternalLinkUrlGet( 'https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/', "Mozilla Security Blog - CSP for the web we have" ) . "</li>
 	</ul>
-	<p><i>Module developed by <a href='https://twitter.com/digininja'>Digininja</a>.</i></p>
 </div>\n";
 
 sentinelHtmlEcho( $page );
