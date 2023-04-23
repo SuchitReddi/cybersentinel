@@ -1,5 +1,5 @@
 <div style="font-family: 'Special Elite', cursive; font-weight: 600; font-size: 16px">
-<img src="/sentinel/images/logo.png" alt="Cyber Sentinel" style="width: 300px;"><br>
+<img src="sentinel/images/logo.png" alt="Cyber Sentinel" style="width: 300px;"><br>
 
 # CyberSentinel
 Demonstration of a collection of various threats and attacks.
