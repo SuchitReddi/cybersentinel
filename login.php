@@ -64,6 +64,17 @@ echo "<!DOCTYPE html>
 
 	<head>
 
+<!-- Google tag (gtag.js) -->
+<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TF3WKZS5Q4');
+</script>
+
+
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
 		<title>Login :: Cyber Sentinel</title>

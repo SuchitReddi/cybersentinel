@@ -267,6 +267,17 @@ function sentinelHtmlEcho( $pPage ) {
 <html lang=\"en-GB\">
 
 	<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TF3WKZS5Q4');
+</script>
+
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
 		<title>{$pPage[ 'title' ]}</title>
@@ -362,6 +373,17 @@ function sentinelHelpHtmlEcho( $pPage ) {
 
 	<head>
 
+<!-- Google tag (gtag.js) -->
+<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TF3WKZS5Q4');
+</script>
+
+
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
 		<title>{$pPage[ 'title' ]}</title>
@@ -397,6 +419,17 @@ function sentinelSourceHtmlEcho( $pPage ) {
 <html lang=\"en-GB\">
 
 	<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TF3WKZS5Q4');
+</script>
+
 
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
