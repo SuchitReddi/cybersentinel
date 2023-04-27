@@ -18,7 +18,7 @@ $page[ 'body' ] .= "
 
 	<h2>Links</h2>
 	<ul>
-		<li>GitHub: " . sentinelExternalLinkUrlGet( 'https://github.com/SuchitReddi/CyberSentinel' ) . "</li>
+		<li>GitHub: " . sentinelExternalLinkUrlGet( 'https://github.com/SuchitReddi/cybersentinel' ) . "</li>
 		<li>DockerHub: " . sentinelExternalLinkUrlGet( 'https://hub.docker.com/r/5herl0ck/cybersentinel' ) . "</li>
 	</ul>
 

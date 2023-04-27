@@ -122,7 +122,7 @@ echo "<!DOCTYPE html>
 
 	<div id=\"footer\">
 
-	<p>" . sentinelExternalLinkUrlGet( 'https://github.com/SuchitReddi/CyberSentinel', 'Cyber Sentinel' ) . "</p>
+	<p>" . sentinelExternalLinkUrlGet( 'https://github.com/SuchitReddi/cybersentinel', 'Cyber Sentinel' ) . "</p>
 
 	</div> <!--<div id=\"footer\"> -->
 

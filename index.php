@@ -14,7 +14,7 @@ $page['body'] .= "
 	<h1 style=\"text-align: center;\">Welcome to Cyber Sentinel!</h1>
 	<p>Cyber Sentinel is a PHP/MySQL web application that is made intentionally vulnerable! The aim of this project is to increase cyber awareness among modern
 	web developers.<br>
-	Incorporating security during development stage itself is a good practice which isn't always possible due to deadlines. So, you can learn how to give your 
+	Incorporating security into the development stage itself is a good practice that isn't always possible due to deadlines. So, you can learn how to give your 
 	applications the minimum level of security, which is always better than leaving them unprotected. I added tutorials which will show you how to use this web 
 	application to improve or learn about different vulnerabilities step by step.</p>
 	<p>Cyber Sentinel helps you to practice some of the most common, yet dangerous web vulnerabilities, teach you their patches, with a simple interface.</p>
@@ -36,7 +36,7 @@ $page['body'] .= "
 	(" . sentinelExternalLinkUrlGet('https://www.virtualbox.org/', 'VirtualBox') . " or " . sentinelExternalLinkUrlGet('https://www.vmware.com/', 'VMware') . "),
 	which is set to NAT networking mode. You can download and install " . sentinelExternalLinkUrlGet('https://www.apachefriends.org/', 'XAMPP') . " 
 	for the web server and database. I went a step further and dockerized the application. You can use this securely with this 
-	" . sentinelExternalLinkUrlGet('https://hub.docker.com/repository/docker/5herl0ck/cybersentinel', 'dockerized') . " version.<br>
+	" . sentinelExternalLinkUrlGet('https://hub.docker.com/r/5herl0ck/cybersentinel', 'dockerized') . " version.<br>
 	I'm trying to dockerize the application which is supposed to provide similar protection as a virtual machine, but doesn't take up as much storage.</p>
 	<hr />
 	<br />
