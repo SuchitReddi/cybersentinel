@@ -37,14 +37,14 @@ $page['body'] .= "
 	which is set to NAT networking mode. You can download and install " . sentinelExternalLinkUrlGet('https://www.apachefriends.org/', 'XAMPP') . " 
 	for the web server and database. I went a step further and dockerized the application. You can use this securely with this 
 	" . sentinelExternalLinkUrlGet('https://hub.docker.com/r/5herl0ck/cybersentinel', 'dockerized') . " version.<br>
-	I'm trying to dockerize the application which is supposed to provide similar protection as a virtual machine, but doesn't take up as much storage.</p>
+	I dockerized the application to provide protection similar to a virtual machine, but a docker doesn't take up as much storage as a virtual machine.</p>
 	<hr />
 	<br />
 	
 	<h3 style=\"text-align: center;\">Disclaimer</h3>
-	<p>I do not take responsibility for the way in which any one uses this application (Cyber Sentinel). I have made the purposes of the application clear and it
-	should not be used maliciously. I have given warnings and taken measures to prevent users from installing Cyber Sentinel on to live web servers. 
-	If any web server is compromised via an installation of Cyber Sentinel, it is not my responsibility. It is the responsibility of the person/s who uploaded and
+	<p>I do not take responsibility for the way in which anyone uses this application (Cyber Sentinel). I have made the purposes of the application clear, and it
+	should not be used maliciously. I have warned and taken measures to prevent users from installing Cyber Sentinel on live web servers. 
+	If any web server is compromised via installing Cyber Sentinel, it is not my responsibility. It is the responsibility of the person/s who uploaded and
 	installed it.</p>
 </div>";
 

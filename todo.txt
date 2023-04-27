@@ -1,6 +1,4 @@
-Make css designs for tutorials
-
-Link the pages of tutorials, and Write the tutorials
+Write the tutorials
 
 Name the links in More Information part of each vulnerability (present in index.php of each vulnerability)
 
@@ -12,8 +10,10 @@ Add dark mode (change background from white to black, then text color accordingl
 
 Add setupw to instructions.php and all the front facing pages.
 
-Write the readme.
-
 Add consequences of each attack
 
 Add the docker container to packages or using actions or deployments inside actions
+
+Add a good wiki page, test out the releases feature
+
+Add sign up and registration
