@@ -3,15 +3,15 @@
 
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-TF3WKZS5Q4');
-</script>
+        gtag('config', 'G-TF3WKZS5Q4');
+    </script>
 
     <meta charset="utf-8">
     <title>Setup for Windows</title>
@@ -24,26 +24,48 @@
     <button><a href="https://suchitreddi.github.io/">Home</a></button><br>
 
     <h1 style="text-align: center;">Setup to run PHP files on windows</h1>
+    <h3 style="text-align: center;">Warning!: It is not advisable to run Cyber Sentinel on your host windows machine.
+        You can run it on a virtual machine, or run it in a docker by following the steps here: <a
+            href="https://hub.docker.com/r/5herl0ck/cybersentinel" target="_blank"
+            rel="nofollow noopener noreferrer">https://hub.docker.com/r/5herl0ck/cybersentinel</a></h3>
+
     <p>
-        <ol>
-            <li>Download and install XAMPP</li>
-            <p>Download XAMPP from here: <a href="https://www.apachefriends.org/download.html" target="_blank" rel="nofollow noopener noreferrer">https://www.apachefriends.org/download.html</a>, and remember the path where you're downloading it.</p>
-            <li>Download repository as zip</li>
-            <p>Download Cyber Sentinel as a zip folder from GitHub here: <a href="https://github.com/SuchitReddi/cybersentinel" target="_blank" rel="nofollow noopener nofollow">https://github.com/SuchitReddi/cybersentinel</a>, and extract it. Rename it to something simple (like cs)</p>
-            <li>Place the folder in xampp/htdocs/</li>
-            <p>Now place the extracted folder inside the htdocs folder of xampp (where you installed it in the first step).</p>
-            <li>Go to localhost/cs(folder_name)</li>
-            <p>Open your browser and type localhost/cs. Here, cs is the name of the folder if you renamed it from CyberSentinel.</p>
-            <li>Setting up the database</li>
-            <p>Click on Create/Reset database to create a new database. It will refresh the whole database.</p>
-            <li>Admin login</li>
-            <p>If you want to login as admin to make any changes, you can use the following credentials. (username: admin, password: password)</p>
-            <li>Changing difficulty level</li>
-            <p>You can change the difficulty level by going to Difficulty and selecting your preferable level from the drop down menu, and then click submit. Select low if you are a beginner.</p>
-        </ol>
+    <ol>
+        <li>Install and Run XAMPP</li>
+        <p>Download XAMPP from here: <a href="https://www.apachefriends.org/download.html" target="_blank"
+                rel="nofollow noopener noreferrer">https://www.apachefriends.org/download.html</a>, and remember the
+            path where you're downloading it.<br>
+            Open XAMPP and start the first two services of Apache and MySQL.
+            <center><img src="../sentinel/images/xampp.png" width="400px"></center>
+        </p>
+
+        <li>Download repository as zip</li>
+        <p>Download Cyber Sentinel as a zip folder from GitHub here: <a
+                href="https://github.com/SuchitReddi/cybersentinel" target="_blank"
+                rel="nofollow noopener nofollow">https://github.com/SuchitReddi/cybersentinel</a>, and extract it.
+            Rename it to <b><code>cybersentinel</code></b></p>
+        <li>Place the folder in {Location of xampp}/htdocs/</li>
+        <p>Now place the extracted folder inside the htdocs folder of xampp (where you installed it in the first step).
+            <center><img src="../sentinel/images/htdocs.png" width="800px"></center>
+        </p>
+        <li>Go to localhost/cybersentinel</li>
+        <p>Open your browser and type localhost/cybersentinel.</p>
+        <li>Setting up the database</li>
+        <p>Go to Setup/Reset DB. Click on Create/Reset database to create a new database. It will refresh the database.
+            <center><img src="../sentinel/images/setupdb.png" width="800px"></center>
+        </p>
+        <li>Admin login</li>
+        <p>If you want to login as admin to make any changes, you can use the following credentials. (username: admin,
+            password: password)</p>
+        <li>Changing difficulty level</li>
+        <p>You can change the difficulty level by going to Difficulty and selecting your preferable level from the drop
+            down menu, and then click submit. Select low if you are a beginner.</p>
+    </ol>
     </p>
-    <p style="text-align: end; font-size: 15px;"><a href="https://jaypomal.medium.com/configuring-dvwa-into-your-windows-machine-efffbe4b8921" target="_blank" rel="nofollow noreferrer noopener">Source</a></p>
-    
+    <p style="text-align: end; font-size: 15px;"><a
+            href="https://jaypomal.medium.com/configuring-dvwa-into-your-windows-machine-efffbe4b8921" target="_blank"
+            rel="nofollow noreferrer noopener">Source</a></p>
+
     <button><a href="../cybersentinel.html">Back</a></button><br>
     <button><a href="https://suchitreddi.github.io/">Home</a></button><br>
 </body>
