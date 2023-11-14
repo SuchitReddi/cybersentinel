@@ -1,0 +1,15 @@
+**Do you already have another mysqld server running on port: 3306?**
+https://stackoverflow.com/questions/68065284/specified-port-3306-is-already-in-use-when-installing-mysql
+This error occurs when you start xampp. Apache server started fine, but MySQL gave did not. When I opened the logs, I saw this:
+
+Can't start server: Bind on TCP/IP port: Address already in use
+Do you already have another mysqld server running on port: 3306 ?
+Aborting
+
+To fix this error, follow these steps:
+Go to services or task manager, you will find a service called mysql80 running, stop it. Then restart xampp.
+
+**Uncaught mysqli_sql_exception: Unknown database 'sentinel' in some\path\sentinelPage.inc.php:512**
+This error occurs when you try to open one of the vulnerabilities requring a database (Command Injection). The solution is simple,
+you have to setup a database first. Go to Setup/Reset DB, there click on the "Create/Reset Database" button. You might need to scroll
+down to see this button.
