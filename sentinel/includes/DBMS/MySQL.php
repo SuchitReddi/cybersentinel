@@ -32,7 +32,6 @@ if( !@mysqli_query($GLOBALS["___mysqli_ston"],  $create_db ) ) {
 }
 sentinelMessagePush( "Database has been created." );
 
-
 // Create table 'users'
 if( !@((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . $_SENTINEL[ 'db_database' ])) ) {
 	sentinelMessagePush( 'Could not connect to database.' );
@@ -45,7 +44,6 @@ if( !mysqli_query($GLOBALS["___mysqli_ston"],  $create_tb ) ) {
 	sentinelPageReload();
 }
 sentinelMessagePush( "'users' table was created." );
-
 
 // Insert some data into users
 $base_dir= str_replace ("setup.php", "", $_SERVER['SCRIPT_NAME']);
@@ -63,7 +61,6 @@ if( !mysqli_query($GLOBALS["___mysqli_ston"],  $insert ) ) {
 }
 sentinelMessagePush( "Data inserted into 'users' table." );
 
-
 // Create guestbook table
 $create_tb_guestbook = "CREATE TABLE guestbook (comment_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT, comment varchar(300), name varchar(100), PRIMARY KEY (comment_id));";
 if( !mysqli_query($GLOBALS["___mysqli_ston"],  $create_tb_guestbook ) ) {
@@ -71,7 +68,6 @@ if( !mysqli_query($GLOBALS["___mysqli_ston"],  $create_tb_guestbook ) ) {
 	sentinelPageReload();
 }
 sentinelMessagePush( "'guestbook' table was created." );
-
 
 // Insert data into 'guestbook'
 $insert = "INSERT INTO guestbook VALUES ('1','I might store my malicious code here. Just for a little while, I promise!','Dear User!');";
@@ -81,10 +77,7 @@ if( !mysqli_query($GLOBALS["___mysqli_ston"],  $insert ) ) {
 }
 sentinelMessagePush( "Data inserted into 'guestbook' table." );
 
-
-
-
-// Copy .bak for a fun directory listing vuln
+/* // Copy .bak for a fun directory listing vuln
 $conf = SENTINEL_WEB_PAGE_TO_ROOT . 'config/config.inc.php';
 $bakconf = SENTINEL_WEB_PAGE_TO_ROOT . 'config/config.inc.php.bak';
 if (file_exists($conf)) {
@@ -93,7 +86,7 @@ if (file_exists($conf)) {
 }
 
 sentinelMessagePush( "Backup file /config/config.inc.php.bak automatically created" );
-
+*/
 // Done
 sentinelMessagePush( "<em>Setup successful</em>!" );
 

@@ -40,7 +40,7 @@ $_SENTINEL[ 'default_locale' ] = 'en';
 # Disable authentication
 #   Some tools don't like working with authentication and passing cookies around
 #   so this setting lets you turn off authentication.
-$_SENTINEL[ 'disable_authentication' ] = true;
+$_SENTINEL[ 'disable_authentication' ] = false;
 
 define ("MYSQL", "mysql");
 define ("SQLITE", "sqlite");

@@ -13,3 +13,19 @@ Go to services or task manager, you will find a service called mysql80 running, 
 This error occurs when you try to open one of the vulnerabilities requring a database (Command Injection). The solution is simple,
 you have to setup a database first. Go to Setup/Reset DB, there click on the "Create/Reset Database" button. You might need to scroll
 down to see this button.
+
+**Changes in github repo not reflected when git clone is used in docker**
+When you are using the application as a docker image, you will be using git clone to get the repository into the docker.
+But the newer changes are not being updated, atleast not instantly.
+A temporary fix for this is:
+You can go to exec inside the container using docker desktop application. Once there, run the below command.
+cd app/cybersentinel && git pull
+A better and more permanent fix would be to add the above command into the dockerfile and update the dockerhub repo.
+I have to figure out how to do that when free.
+
+**Database not selected**
+I reintroduced the user table by changing disable_authentication to false in config.inc.php. Then to make the flow: any db requiring page,
+setup, login; I had to make some changes. After that, the queries were not able to get the database name. So I added a statement before
+lines having "$result = mysqli_query". The statement is "mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );".
+To make the above statement accept variable db name, use this (may not always work, worked in login.php): 
+"mysqli_select_db($GLOBALS["___mysqli_ston"],  $_SENTINEL[ 'db_database' ] );"

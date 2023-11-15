@@ -8,6 +8,8 @@ if( isset( $_SESSION [ 'id' ] ) ) {
 		case MYSQL:
 			// Check database
 			$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id' LIMIT 1;";
+			//Uncomment below line if you are getting an error saying no database selected.
+			mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 			$result = mysqli_query($GLOBALS["___mysqli_ston"], $query ) or die( '<pre>Something went wrong.</pre>' );
 
 			// Get results

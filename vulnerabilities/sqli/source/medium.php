@@ -9,6 +9,8 @@ if( isset( $_POST[ 'Submit' ] ) ) {
 	switch ($_SENTINEL['SQLI_DB']) {
 		case MYSQL:
 			$query  = "SELECT first_name, last_name FROM users WHERE user_id = $id;";
+			//Uncomment below line if you are getting an error saying no database selected.
+			mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 			$result = mysqli_query($GLOBALS["___mysqli_ston"], $query) or die( '<pre>' . mysqli_error($GLOBALS["___mysqli_ston"]) . '</pre>' );
 
 			// Get results
@@ -52,6 +54,8 @@ if( isset( $_POST[ 'Submit' ] ) ) {
 // This is used later on in the index.php page
 // Setting it here so we can close the database connection in here like in the rest of the source scripts
 $query  = "SELECT COUNT(*) FROM users;";
+//Uncomment below line if you are getting an error saying no database selected.
+mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 $result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
 $number_of_rows = mysqli_fetch_row( $result )[0];
 

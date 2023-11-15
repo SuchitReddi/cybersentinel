@@ -15,6 +15,8 @@ sentinelDatabaseConnect();
 
 if (array_key_exists ("btnClear", $_POST)) {
 	$query  = "TRUNCATE guestbook;";
+	//Uncomment below line if you are getting an error saying no database selected.
+	mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 	$result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
 }
 

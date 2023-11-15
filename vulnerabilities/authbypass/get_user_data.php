@@ -12,6 +12,8 @@ if ((sentinelSecurityLevelGet() == "high" || sentinelSecurityLevelGet() == "impo
 }
 
 $query  = "SELECT user_id, first_name, last_name FROM users";
+//Uncomment if you are getting an error saying no database selected.
+//mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 $result = mysqli_query($GLOBALS["___mysqli_ston"],  $query );
 
 $guestbook = ''; 

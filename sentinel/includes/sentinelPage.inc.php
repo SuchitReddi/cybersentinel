@@ -507,6 +507,7 @@ function sentinelDatabaseConnect() {
 	global $db;
 	global $sqlite_db_connection;
 
+	/*
 	if( $DBMS == 'MySQL' ) {
 		if( !@($GLOBALS["___mysqli_ston"] = mysqli_connect( $_SENTINEL[ 'db_server' ],  $_SENTINEL[ 'db_user' ],  $_SENTINEL[ 'db_password' ], "", $_SENTINEL[ 'db_port' ] ))
 		|| !@((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . $_SENTINEL[ 'db_database' ])) ) {
@@ -520,6 +521,42 @@ function sentinelDatabaseConnect() {
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	}
+	*/
+	
+	if ($DBMS == 'MySQL') {
+		// Attempt to connect to MySQL server without selecting a database
+		if (!@($GLOBALS["___mysqli_ston"] = mysqli_connect($_SENTINEL['db_server'], $_SENTINEL['db_user'], $_SENTINEL['db_password'], "", $_SENTINEL['db_port']))) {
+			sentinelLogout();
+			sentinelMessagePush('Unable to connect to the database.<br />' . $DBMS_errorFunc);
+			sentinelRedirect(SENTINEL_WEB_PAGE_TO_ROOT . 'setup.php');
+		}
+	
+		// Check if the database exists
+		$databaseExists = false;
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], "SHOW DATABASES");
+		while ($row = mysqli_fetch_assoc($result)) {
+			if ($row['Database'] == $_SENTINEL['db_database']) {
+				$databaseExists = true;
+				break;
+			}
+		}
+	
+		// Close the connection
+		//mysqli_close($GLOBALS["___mysqli_ston"]);
+	
+		// If the database doesn't exist, redirect to setup.php
+		if (!$databaseExists) {
+			sentinelLogout();
+			sentinelMessagePush('The database does not exist. Redirecting to setup.');
+			sentinelRedirect(SENTINEL_WEB_PAGE_TO_ROOT . 'setup.php');
+		}
+	
+		// Continue with the original code to establish the PDO connection
+		$db = new PDO('mysql:host=' . $_SENTINEL['db_server'] . ';dbname=' . $_SENTINEL['db_database'] . ';port=' . $_SENTINEL['db_port'] . ';charset=utf8', $_SENTINEL['db_user'], $_SENTINEL['db_password']);
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	}
+	
 	elseif( $DBMS == 'PGSQL' ) {
 		//$dbconn = pg_connect("host={$_SENTINEL[ 'db_server' ]} dbname={$_SENTINEL[ 'db_database' ]} user={$_SENTINEL[ 'db_user' ]} password={$_SENTINEL[ 'db_password' ])}"
 		//or die( $DBMS_connError );
@@ -550,6 +587,7 @@ function sentinelRedirect( $pLocation ) {
 // XSS Stored guestbook function --
 function sentinelGuestbook() {
 	$query  = "SELECT name, comment FROM guestbook";
+	mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 	$result = mysqli_query($GLOBALS["___mysqli_ston"],  $query );
 
 	$guestbook = '';
