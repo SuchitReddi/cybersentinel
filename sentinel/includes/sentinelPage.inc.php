@@ -341,9 +341,9 @@ function insertLogEntry($user, $ip, $visited, $time) {
 		mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 		$result = mysqli_query($GLOBALS["___mysqli_ston"], $query);
 
-		if (!$result) {
+		/* if (!$result) {
 			die("Failed to insert log entry: " . mysqli_error($GLOBALS["___mysqli_ston"]));
-		}
+		} */
 	}
 
 // Capture logs for every page visit
