@@ -75,6 +75,7 @@ $logHtml = '<h2>Log Records</h2>';
 $logHtml .= '<table border="10px" style="border-color: black;">
     <tr>
         <th>Log ID</th>
+        <th>User</th>
         <th>IP</th>
         <th>Visited Page</th>
         <th>Time</th>
@@ -84,6 +85,7 @@ if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
         $logHtml .= "<tr>
             <td>{$row['log_id']}</td>
+            <td>{$row['user']}</td>
             <td>{$row['ip']}</td>
             <td>{$row['visited']}</td>
             <td>{$row['time']}</td>

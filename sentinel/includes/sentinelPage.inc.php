@@ -120,6 +120,40 @@ function sentinelCurrentUser() {
 	return ( isset( $sentinelSession[ 'username' ]) ? $sentinelSession[ 'username' ] : 'Unknown') ;
 }
 
+
+// Function to check if the logged in user is still in the database. If not, logs out.
+$check_user = sentinelCurrentUser();
+function sentinelLoggedUserCheck($check_user) {
+	global $_SENTINEL;
+
+    // Connect to the database (adjust this part based on your setup)
+    sentinelDatabaseConnect();
+
+    // Sanitize the username to prevent SQL injection
+    $check_user = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $check_user);
+
+    // Perform the query
+    $query = "SELECT COUNT(*) as count FROM users WHERE user = '$check_user'";
+	mysqli_select_db($GLOBALS["___mysqli_ston"], "sentinel");
+    $result = mysqli_query($GLOBALS["___mysqli_ston"], $query);
+
+    if (!$result) {
+        die("Query failed: " . mysqli_error($GLOBALS["___mysqli_ston"]));
+    }
+
+    // Fetch the result
+    $row = mysqli_fetch_assoc($result);
+    $userCount = $row['count'];
+
+    // Return true if the user exists, false otherwise
+    return $userCount > 0;
+}
+
+if (sentinelIsLoggedIn() AND !sentinelLoggedUserCheck($check_user)) {
+	echo ("Tough Luck!! Your account was removed from the database.");
+    sentinelLogout();
+}
+
 // -- END (Session functions)
 
 function &sentinelPageNewGrab() {
@@ -282,49 +316,50 @@ function getUserIP() {
 }
 
 // Function to insert a log entry
-function insertLogEntry($ip, $visited, $time) {
+function insertLogEntry($user, $ip, $visited, $time) {
     $ip = getUserIP();
-    $query = "INSERT INTO logs (ip, visited, time) VALUES ('$ip', '$visited', '$time')";
+	$user=sentinelCurrentUser();
+    $query = "INSERT INTO logs (user, ip, visited, time) VALUES ('$user', '$ip', '$visited', '$time')";
 
 	global $_SENTINEL;
 	global $DBMS;
 	global $DBMS_errorFunc;
 	global $db;
 	global $sqlite_db_connection;
-	
+		
 	// Check if the 'sentinel' database exists. If the database doesn't exist, we create it automatically. If it does, user can reset it.
-$databaseExistsQuery = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{$_SENTINEL['db_database']}'";
-$databaseExistsResult = mysqli_query($GLOBALS["___mysqli_ston"], $databaseExistsQuery);
+	$databaseExistsQuery = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{$_SENTINEL['db_database']}'";
+	$databaseExistsResult = mysqli_query($GLOBALS["___mysqli_ston"], $databaseExistsQuery);
 
-// If the database doesn't exist, redirect to setup.php
-if (!$databaseExistsResult || mysqli_num_rows($databaseExistsResult) === 0) {
-    sentinelLogout();
-    sentinelMessagePush('The database does not exist. Redirecting to setup.');
-    $_SESSION['redirected_to_setup'] = true;
-    sentinelRedirect(SENTINEL_WEB_PAGE_TO_ROOT . 'setup.php');
-}
-	print('databaseExists');
-	mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
-    $result = mysqli_query($GLOBALS["___mysqli_ston"], $query);
+	// If the database doesn't exist, redirect to setup.php
+	if (!$databaseExistsResult || mysqli_num_rows($databaseExistsResult) === 0) {
+		sentinelLogout();
+		sentinelMessagePush('The database does not exist. Redirecting to setup.');
+		$_SESSION['redirected_to_setup'] = true;
+		sentinelRedirect(SENTINEL_WEB_PAGE_TO_ROOT . 'setup.php');
+	}
+		mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $query);
 
-    if (!$result) {
-        die("Failed to insert log entry: " . mysqli_error($GLOBALS["___mysqli_ston"]));
-    }
-}
+		if (!$result) {
+			die("Failed to insert log entry: " . mysqli_error($GLOBALS["___mysqli_ston"]));
+		}
+	}
 
 // Capture logs for every page visit
 $ip = getUserIP();
+$user=sentinelCurrentUser();
 $visited = $_SERVER['REQUEST_URI'];
 $time = date("Y-m-d H:i:s");
 
-insertLogEntry($ip, $visited, $time);
+insertLogEntry($user, $ip, $visited, $time);
 
-	// Send Headers + main HTML code
-	Header( 'Cache-Control: no-cache, must-revalidate');   // HTTP/1.1
-	Header( 'Content-Type: text/html;charset=utf-8' );     // TODO- proper XHTML headers...
-	Header( 'Expires: Tue, 23 Jun 2009 12:00:00 GMT' );    // Date in the past
+// Send Headers + main HTML code
+Header( 'Cache-Control: no-cache, must-revalidate');   // HTTP/1.1
+Header( 'Content-Type: text/html;charset=utf-8' );     // TODO- proper XHTML headers...
+Header( 'Expires: Tue, 23 Jun 2009 12:00:00 GMT' );    // Date in the past
 
-	echo "<!DOCTYPE html>
+echo "<!DOCTYPE html>
 
 <html lang=\"en-GB\">
 

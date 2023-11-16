@@ -65,17 +65,6 @@ echo "<!DOCTYPE html>
 
 	<head>
 
-<!-- Google tag (gtag.js) -->
-<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TF3WKZS5Q4');
-</script>
-
-
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
 		<title>Login :: Cyber Sentinel</title>
@@ -106,12 +95,12 @@ echo "<!DOCTYPE html>
 
 			<label for=\"user\">Username</label> <input type=\"text\" class=\"loginInput\" size=\"20\" name=\"username\"><br />
 
-
 			<label for=\"pass\">Password</label> <input type=\"password\" class=\"loginInput\" AUTOCOMPLETE=\"off\" size=\"20\" name=\"password\"><br />
 
 			<br />
 
 			<p class=\"submit\"><input type=\"submit\" value=\"Login\" name=\"Login\"></p>
+			<p><button><a href=\"signup.php\">Sign up</a></button></p>
 
 	</fieldset>
 
