@@ -1,3 +1,11 @@
+PERSISTANT
+
+**The logs code in sentinelPage.inc.php, was causing too many redirects error preventing user from reaching setup.php.
+I had to change code in many places which might cause database not found errors and no redirection to setup, if sentinel 
+database is dropped and user is still in some page. (logs.php is having this issue).
+
+FIXED
+
 **Do you already have another mysqld server running on port: 3306?**
 https://stackoverflow.com/questions/68065284/specified-port-3306-is-already-in-use-when-installing-mysql
 This error occurs when you start xampp. Apache server started fine, but MySQL gave did not. When I opened the logs, I saw this:
@@ -26,6 +34,9 @@ I have to figure out how to do that when free.
 **Database not selected**
 I reintroduced the user table by changing disable_authentication to false in config.inc.php. Then to make the flow: any db requiring page,
 setup, login; I had to make some changes. After that, the queries were not able to get the database name. So I added a statement before
-lines having "$result = mysqli_query". The statement is "mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );".
+lines having "$result = mysqli_query". The statement is "mysqli_select_db($GLOBALS["___mysqli_ston"], "sentinel" );".
 To make the above statement accept variable db name, use this (may not always work, worked in login.php): 
 "mysqli_select_db($GLOBALS["___mysqli_ston"],  $_SENTINEL[ 'db_database' ] );"
+
+**Undefined global variable $___mysqli_ston in sentinelPage.inc.php**
+This error occurs due to database not being initialized. Add this code to fix it: sentinelDatabaseConnect();

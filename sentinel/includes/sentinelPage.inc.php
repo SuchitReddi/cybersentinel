@@ -249,13 +249,75 @@ function sentinelHtmlEcho( $pPage ) {
 
 	$systemInfoHtml = "";
 	if( sentinelIsLoggedIn() ) 
-		$systemInfoHtml = "<div align=\"left\">{$userInfoHtml}<br />{$securityLevelHtml}<br />{$localeHtml}<br />{$sqliDbHtml}</div>";
+		$systemInfoHtml = "<div align=\"left\">{$userInfoHtml} | {$securityLevelHtml}<br>{$localeHtml} | {$sqliDbHtml}</div>";
 	if( $pPage[ 'source_button' ] ) {
 		$systemInfoHtml = sentinelButtonSourceHtmlGet( $pPage[ 'source_button' ] ) . " $systemInfoHtml";
 	}
 	if( $pPage[ 'help_button' ] ) {
 		$systemInfoHtml = sentinelButtonHelpHtmlGet( $pPage[ 'help_button' ] ) . " $systemInfoHtml";
 	}
+
+// Logging every page visit. It can be viewed from log.php	
+sentinelDatabaseConnect();
+
+// Function to get the user's IP address
+function getUserIP() {
+    $ip = '';
+
+    if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } elseif (isset($_SERVER['HTTP_X_FORWARDED'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED'];
+    } elseif (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_FORWARDED_FOR'];
+    } elseif (isset($_SERVER['HTTP_FORWARDED'])) {
+        $ip = $_SERVER['HTTP_FORWARDED'];
+    } elseif (isset($_SERVER['REMOTE_ADDR'])) {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+
+    return $ip;
+}
+
+// Function to insert a log entry
+function insertLogEntry($ip, $visited, $time) {
+    $ip = getUserIP();
+    $query = "INSERT INTO logs (ip, visited, time) VALUES ('$ip', '$visited', '$time')";
+
+	global $_SENTINEL;
+	global $DBMS;
+	global $DBMS_errorFunc;
+	global $db;
+	global $sqlite_db_connection;
+	
+	// Check if the 'sentinel' database exists. If the database doesn't exist, we create it automatically. If it does, user can reset it.
+$databaseExistsQuery = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{$_SENTINEL['db_database']}'";
+$databaseExistsResult = mysqli_query($GLOBALS["___mysqli_ston"], $databaseExistsQuery);
+
+// If the database doesn't exist, redirect to setup.php
+if (!$databaseExistsResult || mysqli_num_rows($databaseExistsResult) === 0) {
+    sentinelLogout();
+    sentinelMessagePush('The database does not exist. Redirecting to setup.');
+    $_SESSION['redirected_to_setup'] = true;
+    sentinelRedirect(SENTINEL_WEB_PAGE_TO_ROOT . 'setup.php');
+}
+	print('databaseExists');
+	mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
+    $result = mysqli_query($GLOBALS["___mysqli_ston"], $query);
+
+    if (!$result) {
+        die("Failed to insert log entry: " . mysqli_error($GLOBALS["___mysqli_ston"]));
+    }
+}
+
+// Capture logs for every page visit
+$ip = getUserIP();
+$visited = $_SERVER['REQUEST_URI'];
+$time = date("Y-m-d H:i:s");
+
+insertLogEntry($ip, $visited, $time);
 
 	// Send Headers + main HTML code
 	Header( 'Cache-Control: no-cache, must-revalidate');   // HTTP/1.1
@@ -293,17 +355,10 @@ function sentinelHtmlEcho( $pPage ) {
 	<body class=\"home\">
 		<div id=\"container\">
 
-			<div id=\"header\">
-				<div id=\"system_info\">
-				{$systemInfoHtml}
-				</div>
-				<img src=\"/cybersentinel/sentinel/images/logo.png\" alt=\"Cyber Sentinel\" style=\"width: 100px; background: black;\"/>
-			</div>
-
+			<center><img src=\"/cybersentinel/sentinel/images/logo.png\" alt=\"Cyber Sentinel\" style=\"width: 100px; background: black;\"/></center>
+			
 			<div id=\"main_total\">
 
-				<div id=\"main_menu\">
-					
 				<div id=\"main_menu_padded\">
 				<ul class=\"menuBlocks\">
 				  <li class=\"selected\"><a href=\"/cybersentinel\">Home</a></li>
@@ -314,6 +369,7 @@ function sentinelHtmlEcho( $pPage ) {
 					<a href=\"#\">Vulnerabilities  <span class=\"arrow\">&#9660;</span></a>
 					<ul class=\"vulnerabilities-list\">
 					  <li><a href=\"/cybersentinel/vulnerabilities/exec/\">Command Injection</a></li><hr />
+					  <li><a href=\"/cybersentinel/vulnerabilities/authbypass/\">Authentication Bypass</a></li><hr />
 					  <li><a href=\"/cybersentinel/vulnerabilities/xss_r/\">XSS (Reflected)</a></li><hr />
 					  <li><a href=\"/cybersentinel/vulnerabilities/xss_s/\">XSS (Stored)</a></li><hr />
 					  <li><a href=\"/cybersentinel/vulnerabilities/xss_d/\">XSS (DOM)</a></li><hr />
@@ -326,11 +382,10 @@ function sentinelHtmlEcho( $pPage ) {
 				  </li>
 				  <li class=\"\"><a href=\"/cybersentinel/difficulty.php\">Difficulty</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/phpinfo.php\">PHP Info</a></li>
+				  <li class=\"\"><a href=\"/cybersentinel/logs.php\">Logs</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/about.php\">About</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/logout.php\">Logout</a></li>
 				</ul>
-			</div>
-				
 				</div>
 
 				<div id=\"main_body\">
@@ -352,7 +407,11 @@ function sentinelHtmlEcho( $pPage ) {
 				<script src='" . SENTINEL_WEB_PAGE_TO_ROOT . "/sentinel/js/add_event_listeners.js'></script>
 
 			</div>
-
+			<div id=\"header\">
+				<div id=\"system_info\">
+					{$systemInfoHtml}
+				</div>
+			</div>
 		</div>
 
 	</body>
@@ -545,16 +604,18 @@ function sentinelDatabaseConnect() {
 		//mysqli_close($GLOBALS["___mysqli_ston"]);
 	
 		// If the database doesn't exist, redirect to setup.php
-		if (!$databaseExists) {
+		if (!$databaseExists && !isset($_SESSION['redirected_to_setup'])) {
 			sentinelLogout();
 			sentinelMessagePush('The database does not exist. Redirecting to setup.');
+			$_SESSION['redirected_to_setup'] = true;
 			sentinelRedirect(SENTINEL_WEB_PAGE_TO_ROOT . 'setup.php');
+			// Continue with the original code to establish the PDO connection
+			$db = new PDO('mysql:host=' . $_SENTINEL['db_server'] . ';dbname=' . $_SENTINEL['db_database'] . ';port=' . $_SENTINEL['db_port'] . ';charset=utf8', $_SENTINEL['db_user'], $_SENTINEL['db_password']);
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		}
 	
-		// Continue with the original code to establish the PDO connection
-		$db = new PDO('mysql:host=' . $_SENTINEL['db_server'] . ';dbname=' . $_SENTINEL['db_database'] . ';port=' . $_SENTINEL['db_port'] . ';charset=utf8', $_SENTINEL['db_user'], $_SENTINEL['db_password']);
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
 	}
 	
 	elseif( $DBMS == 'PGSQL' ) {

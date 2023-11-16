@@ -251,7 +251,7 @@ div#main_menu li:hover {
 } */
 
 div#main_menu_padded {
-	padding: 15px;
+	padding: 5px;
 	/* background-color: white; */
 	display: flex;
 	flex-direction: row;

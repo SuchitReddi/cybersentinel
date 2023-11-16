@@ -87,7 +87,24 @@ if (file_exists($conf)) {
 
 sentinelMessagePush( "Backup file /config/config.inc.php.bak automatically created" );
 */
-// Done
+
+// Create logs table
+$create_tb_logs = "CREATE TABLE logs (log_id INT NOT NULL AUTO_INCREMENT, ip TEXT, visited TEXT, time DATETIME, PRIMARY KEY (log_id));";
+if( !mysqli_query($GLOBALS["___mysqli_ston"],  $create_tb_logs ) ) {
+	sentinelMessagePush( "Log table could not be created<br />SQL: " . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) );
+	sentinelPageReload();
+}
+sentinelMessagePush( "'Logs' table was created." );
+
+/* //You can test log table by uncommenting this code
+// Insert data into 'logs'
+$insert = "INSERT INTO logs (ip, visited, time) VALUES ('127.0.0.1', 'index.php', NOW());"; 
+if( !mysqli_query($GLOBALS["___mysqli_ston"],  $insert ) ) {
+	sentinelMessagePush( "Data could not be inserted into 'logs' table<br />SQL: " . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) );
+	sentinelPageReload();
+}
+sentinelMessagePush( "Data inserted into 'logs' table." ); */
+
 sentinelMessagePush( "<em>Setup successful</em>!" );
 
 if( !sentinelIsLoggedIn())
