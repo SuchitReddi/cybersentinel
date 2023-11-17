@@ -4,6 +4,12 @@ PERSISTANT
 I had to change code in many places which might cause database not found errors and no redirection to setup, if sentinel 
 database is dropped and user is still in some page. (logs.php is having this issue).
 
+**Checking for username existance and such**
+The method used is to give a sql query to search for input username and check for it in a table. It uses mysql_num_rows==1.
+But for now, it's possible to insert duplicate users, which is a intendend vulnerability (for auth bypass).
+The logic mysql_num_rows==1, will not allow duplicate users to login, delete or anything. So we should use mysql_num_rows!=0, if we
+want to introduce the vulnerability.
+Various levels of login.php pages can be made to make it more tougher to create duplicate users in the future.
 FIXED
 
 **Do you already have another mysqld server running on port: 3306?**
@@ -40,3 +46,7 @@ To make the above statement accept variable db name, use this (may not always wo
 
 **Undefined global variable $___mysqli_ston in sentinelPage.inc.php**
 This error occurs due to database not being initialized. Add this code to fix it: sentinelDatabaseConnect();
+
+**Weak password hash**
+This application uses md5($password), to hash the password. This is insecure. But as this application aims to be insecure, we go along with it.
+If you want a more secure way, use this password_hash($password, PASSWORD_DEFAULT). 

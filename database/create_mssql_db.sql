@@ -1,6 +1,9 @@
 /*
-In case I get round to adding MS SQL support, this creates and populates the tables.
+This is OUTDATED. Should update from setup.php or MySQL.php before using.
+If MS SQL support is added, this creates and populates the tables.
 */
+
+/* $enteredPassword = password_hash($enteredPassword, PASSWORD_DEFAULT); // More secure way. */
 
 CREATE DATABASE sentinel;
 

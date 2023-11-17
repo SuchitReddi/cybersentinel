@@ -51,6 +51,7 @@ if (!$databaseExistsResult || mysqli_num_rows($databaseExistsResult) == 0) {
 	$base_dir= str_replace ("setup.php", "", $_SERVER['SCRIPT_NAME']);
 	//$avatarUrl  = $base_dir . 'docs/users/';
 
+	//$enteredPassword = password_hash($enteredPassword, PASSWORD_DEFAULT); // More secure way.
 	$insert = "INSERT INTO users (first_name, last_name, user, password) VALUES
 		('admin','admin','admin',MD5('password')),
 		('Gordon','Brown','gordonb',MD5('abc123')),

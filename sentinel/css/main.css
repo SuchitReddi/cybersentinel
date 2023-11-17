@@ -7,7 +7,7 @@ body {
 	min-width: 981px;
 	height: 100%;
 	position: relative;
-	background-image: url(../images/background.png); 
+	background-image: url(../images/background.png);
 	background-size: contain; 
 	/* background-color: lightgray; */
 	font-weight: 600;
@@ -160,7 +160,7 @@ div#main_body {
 	float: left;
 	width: 100%;
 	/* background: #0040ff; */
-	background-color: rgba(134, 230, 235, 0.5);
+	background-color: rgba(134, 230, 235, 0.8);
 	padding-top: 20px;
 	padding-bottom: 10px;
 	/* font-size: 13px; */

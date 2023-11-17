@@ -17,6 +17,7 @@ if (isset($_POST['Signup'])) {
 
     $password = $_POST['password'];
     $password = stripslashes($password);
+    //$enteredPassword = password_hash($enteredPassword, PASSWORD_DEFAULT); // More secure way.
     $password = md5($password);
 
     // Insert user into 'users' table
@@ -75,27 +76,15 @@ echo <<<HTML
                 <label for="password">Password</label>
                 <input type="password" class="signupInput" AUTOCOMPLETE="off" size="20" name="password" required><br />
 
-                
-
                 <p class="submit"><input type="submit" value="Signup" name="Signup"></p>
             </fieldset>
-
         </form>
-
         <br />
-
         {$messagesHtml}
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
         <div id="footer">
             <p><a href="https://github.com/SuchitReddi/cybersentinel" target="_blank" rel="noreferrer nofollow noopener">Cyber Sentinel</a>
+        </div> <!-- <div id="footer"> -->
     </div> <!-- <div id="content"> -->
 </div> <!-- <div id="wrapper"> -->
 </body>

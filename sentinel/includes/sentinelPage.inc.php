@@ -150,7 +150,7 @@ function sentinelLoggedUserCheck($check_user) {
 }
 
 if (sentinelIsLoggedIn() AND !sentinelLoggedUserCheck($check_user)) {
-	echo ("Tough Luck!! Your account was removed from the database.");
+	sentinelMessagePush("Tough Luck!! Your account was removed from the database.");
     sentinelLogout();
 }
 
@@ -362,39 +362,39 @@ Header( 'Expires: Tue, 23 Jun 2009 12:00:00 GMT' );    // Date in the past
 echo "<!DOCTYPE html>
 
 <html lang=\"en-GB\">
-
-	<head>
-
+<head>
 <!-- Google tag (gtag.js) -->
 <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-TF3WKZS5Q4');
 </script>
+	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
+	<title>{$pPage[ 'title' ]}</title>
+	<link rel=\"stylesheet\" type=\"text/css\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/css/main.css\" />
+	<link rel=\"icon\" type=\"\image/ico\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "favicon.ico\" />
+	<script type=\"text/javascript\" src=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/js/sentinelPage.js\"></script>
+</head>
 
-		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
-
-		<title>{$pPage[ 'title' ]}</title>
-
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/css/main.css\" />
-
-		<link rel=\"icon\" type=\"\image/ico\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "favicon.ico\" />
-
-		<script type=\"text/javascript\" src=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/js/sentinelPage.js\"></script>
-
-	</head>
+<!-- JavaScript function to handle user deletion -->
+    <script>
+        function confirmDelete() {
+            var currentuser = \"" . sentinelCurrentUser() . "\";
+            if (confirm(\"Are you sure you want to delete the user '\" + currentuser + \"'?\")) {
+                // Perform the delete action if confirmed
+                window.location.href = \"/cybersentinel/delete.php\"; // Replace with your actual delete action
+            }
+        }
+    </script>
 
 	<body class=\"home\">
-		<div id=\"container\">
+		<div id=\"container\"><!-- container div start-->
 
 			<center><img src=\"/cybersentinel/sentinel/images/logo.png\" alt=\"Cyber Sentinel\" style=\"width: 100px; background: black;\"/></center>
-			
-			<div id=\"main_total\">
-
-				<div id=\"main_menu_padded\">
+		
+				<div id=\"main_menu_padded\"><!-- main_menu_padded div start-->
 				<ul class=\"menuBlocks\">
 				  <li class=\"selected\"><a href=\"/cybersentinel\">Home</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/instructions.php\">Instructions</a></li>
@@ -420,35 +420,30 @@ echo "<!DOCTYPE html>
 				  <li class=\"\"><a href=\"/cybersentinel/logs.php\">Logs</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/about.php\">About</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/logout.php\">Logout</a></li>
+				  <li class=\"\"><a href=\"#\" onclick=\"confirmDelete()\">Delete User</a></li>
 				</ul>
-				</div>
+				</div><!-- main_menu_padded div end-->
 
 				<div id=\"main_body\">
-
 					{$pPage[ 'body' ]}
 					<br /><br />
 					{$messagesHtml}
-
 				</div>
-
-			</div>
+			</div><!-- container div end-->
 
 			<div class=\"clear\">
 			</div>
 
 			<div id=\"footer\">
-
 				<p><a style=\"font-size: 13px; background: black;\" href=\"https://github.com/SuchitReddi/cybersentinel\" target=\"_blank\" rel=\"nofollow noreferrer noopener\">Cyber Sentinel</a></p>
 				<script src='" . SENTINEL_WEB_PAGE_TO_ROOT . "/sentinel/js/add_event_listeners.js'></script>
-
 			</div>
+
 			<div id=\"header\">
 				<div id=\"system_info\">
 					{$systemInfoHtml}
 				</div>
 			</div>
-		</div>
-
 	</body>
 
 </html>";
@@ -461,46 +456,30 @@ function sentinelHelpHtmlEcho( $pPage ) {
 	Header( 'Content-Type: text/html;charset=utf-8' );     // TODO- proper XHTML headers...
 	Header( 'Expires: Tue, 23 Jun 2009 12:00:00 GMT' );    // Date in the past
 
-	echo "<!DOCTYPE html>
-
+echo "<!DOCTYPE html>
 <html lang=\"en-GB\">
-
-	<head>
-
+<head>
 <!-- Google tag (gtag.js) -->
 <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-TF3WKZS5Q4');
 </script>
+	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
+	<title>{$pPage[ 'title' ]}</title>
+	<link rel=\"stylesheet\" type=\"text/css\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/css/help.css\" />
+	<link rel=\"icon\" type=\"\image/ico\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "favicon.ico\" />
+</head>
 
-
-		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
-
-		<title>{$pPage[ 'title' ]}</title>
-
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/css/help.css\" />
-
-		<link rel=\"icon\" type=\"\image/ico\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "favicon.ico\" />
-
-	</head>
-
-	<body>
-
-	<div id=\"container\">
-
-			{$pPage[ 'body' ]}
-
-		</div>
-
-	</body>
-
+<body>
+<div id=\"container\">
+	{$pPage[ 'body' ]}
+</div>
+</body>
 </html>";
 }
-
 
 function sentinelSourceHtmlEcho( $pPage ) {
 	// Send Headers
@@ -508,43 +487,27 @@ function sentinelSourceHtmlEcho( $pPage ) {
 	Header( 'Content-Type: text/html;charset=utf-8' );     // TODO- proper XHTML headers...
 	Header( 'Expires: Tue, 23 Jun 2009 12:00:00 GMT' );    // Date in the past
 
-	echo "<!DOCTYPE html>
-
+echo "<!DOCTYPE html>
 <html lang=\"en-GB\">
-
-	<head>
-
+<head>
 <!-- Google tag (gtag.js) -->
 <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4\"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-TF3WKZS5Q4');
 </script>
-
-
-		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
-
-		<title>{$pPage[ 'title' ]}</title>
-
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/css/source.css\" />
-
-		<link rel=\"icon\" type=\"\image/ico\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "favicon.ico\" />
-
-	</head>
-
-	<body>
-
-		<div id=\"container\">
-
-			{$pPage[ 'body' ]}
-
-		</div>
-
-	</body>
-
+	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
+	<title>{$pPage[ 'title' ]}</title>
+	<link rel=\"stylesheet\" type=\"text/css\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "sentinel/css/source.css\" />
+	<link rel=\"icon\" type=\"\image/ico\" href=\"" . SENTINEL_WEB_PAGE_TO_ROOT . "favicon.ico\" />
+</head>
+<body>
+	<div id=\"container\">
+		{$pPage[ 'body' ]}
+	</div>
+</body>
 </html>";
 }
 
@@ -565,12 +528,10 @@ function sentinelButtonHelpHtmlGet( $pId ) {
 	return "<input type=\"button\" value=\"View Help\" class=\"popup_button\" id='help_button' data-help-url='" . SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/view_help.php?id={$pId}&security={$security}&locale={$locale}' )\">";
 }
 
-
 function sentinelButtonSourceHtmlGet( $pId ) {
 	$security = sentinelSecurityLevelGet();
 	return "<input type=\"button\" value=\"View Source\" class=\"popup_button\" id='source_button' data-source-url='" . SENTINEL_WEB_PAGE_TO_ROOT . "vulnerabilities/view_source.php?id={$pId}&security={$security}' )\">";
 }
-
 
 // Database Management --
 
@@ -649,8 +610,6 @@ function sentinelDatabaseConnect() {
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		}
-	
-
 	}
 	
 	elseif( $DBMS == 'PGSQL' ) {
@@ -673,7 +632,6 @@ function sentinelDatabaseConnect() {
 
 // -- END (Database Management)
 
-
 function sentinelRedirect( $pLocation ) {
 	session_commit();
 	header( "Location: {$pLocation}" );
@@ -685,9 +643,7 @@ function sentinelGuestbook() {
 	$query  = "SELECT name, comment FROM guestbook";
 	mysqli_select_db($GLOBALS["___mysqli_ston"],  "sentinel" );
 	$result = mysqli_query($GLOBALS["___mysqli_ston"],  $query );
-
 	$guestbook = '';
-
 	while( $row = mysqli_fetch_row( $result ) ) {
 		if( sentinelSecurityLevelGet() == 'impossible' ) {
 			$name    = htmlspecialchars( $row[0] );
@@ -703,7 +659,6 @@ function sentinelGuestbook() {
 	return $guestbook;
 }
 // -- END (XSS Stored guestbook)
-
 
 // Token functions --
 function checkToken( $user_token, $session_token, $returnURL ) {  # Validate the given (CSRF) token
@@ -740,7 +695,6 @@ function tokenField() {  # Return a field for the (CSRF) token
 $PHPUploadPath    = realpath( getcwd() . DIRECTORY_SEPARATOR . SENTINEL_WEB_PAGE_TO_ROOT . "docs" . DIRECTORY_SEPARATOR . "uploads" ) . DIRECTORY_SEPARATOR;
 $PHPCONFIGPath       = realpath( getcwd() . DIRECTORY_SEPARATOR . SENTINEL_WEB_PAGE_TO_ROOT . "config");
 
-
 $phpDisplayErrors = 'PHP function display_errors: <em>' . ( ini_get( 'display_errors' ) ? 'Enabled</em> <i>(Easy Mode!)</i>' : 'Disabled</em>' );                                                  // Verbose error messages (e.g. full path disclosure)
 $phpSafeMode      = 'PHP function safe_mode: <span class="' . ( ini_get( 'safe_mode' ) ? 'failure">Enabled' : 'success">Disabled' ) . '</span>';                                                   // DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0
 $phpMagicQuotes   = 'PHP function magic_quotes_gpc: <span class="' . ( ini_get( 'magic_quotes_gpc' ) ? 'failure">Enabled' : 'success">Disabled' ) . '</span>';                                     // DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0
@@ -763,5 +717,4 @@ $MYSQL_DB         = 'Database database: <em>' . $_SENTINEL[ 'db_database' ] . '<
 $MYSQL_SERVER     = 'Database host: <em>' . $_SENTINEL[ 'db_server' ] . '</em>';
 $MYSQL_PORT       = 'Database port: <em>' . $_SENTINEL[ 'db_port' ] . '</em>';
 // -- END (Setup Functions)
-
 ?>
