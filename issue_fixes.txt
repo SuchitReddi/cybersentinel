@@ -10,6 +10,15 @@ But for now, it's possible to insert duplicate users, which is a intendend vulne
 The logic mysql_num_rows==1, will not allow duplicate users to login, delete or anything. So we should use mysql_num_rows!=0, if we
 want to introduce the vulnerability.
 Various levels of login.php pages can be made to make it more tougher to create duplicate users in the future.
+
+**Fake admin**
+Create a fake admin account which should have the username admin. Now, when you try to delete the original admin user, or even the
+fake admin, if you provide your fake admin password (which you should know ideally), you will get 'Incorrect password, user not deleted.'
+Because, the first entry will be that of the original admin, but the your fake password won't match with the original admin's password.
+
+**HELP and SOURCE buttons not responding**
+I found out that the help and source button inside vulnerabilities are not working as expected. Should look into this issue later.
+
 FIXED
 
 **Do you already have another mysqld server running on port: 3306?**
@@ -21,7 +30,7 @@ Do you already have another mysqld server running on port: 3306 ?
 Aborting
 
 To fix this error, follow these steps:
-Go to services or task manager, you will find a service called mysql80 running, stop it. Then restart xampp.
+Go to services or task manager, you will find a service called mysql80 running, stop it. Change it's startup type to manual. Restart xampp.
 
 **Uncaught mysqli_sql_exception: Unknown database 'sentinel' in some\path\sentinelPage.inc.php:512**
 This error occurs when you try to open one of the vulnerabilities requring a database (Command Injection). The solution is simple,
