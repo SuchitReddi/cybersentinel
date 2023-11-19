@@ -29,3 +29,6 @@ If any web server is compromised via installing Cyber Sentinel, it is not my res
 This application is vulnerable! There are documented vulnerabilities that will cause more undocumented ones. So, it is strictly advised `not` to use it directly on your host machine without any virtual machine or docker. Do not host code from this project on internet-facing servers, as that will compromise them.<br><hr>
 
 Feel free to highlight any mistakes and contribute to this project by opening pull requests. I'm free for a quick chat at `suchit20016@gmail.com`
+
+## Credits
+This project is inspired from [DVWA](https://github.com/digininja/DVWA). I added more functionalities and improved the user interface on top of this amazing project.
