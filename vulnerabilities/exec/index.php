@@ -37,7 +37,7 @@ $page[ 'body' ] .= "
 
 	<center>
 	<button>
-    <a href=\"./code/cmd_inj.html\">Tutorial</a>
+    <a href=\"./tut/cmd_inj.html\">Tutorial</a>
 	</button>
 	</center>
 

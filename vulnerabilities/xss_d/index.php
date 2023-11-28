@@ -43,7 +43,7 @@ $page[ 'body' ] .= "
 
 	<center>
 	<button>
-    <a href=\"./code/xss-dom.html\">Tutorial</a>
+    <a href=\"./tut/xss-dom.html\">Tutorial</a>
 	</button>
 	</center>
 

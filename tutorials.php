@@ -16,10 +16,10 @@ $page[ 'body' ] .= "
 
 	<p>Here are some tutorials to help you understand these attacks better!</p>
 		<ul>
-			<li><a href=\"./vulnerabilities/exec/code/cmd_inj.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Command Injection</a></li>
-			<li><a href=\"./vulnerabilities/xss_r/code/xss-ref.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: Reflected</a></li>
-			<li><a href=\"./vulnerabilities/xss_s/code/xss-sto.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: Stored</a></li>
-			<li><a href=\"./vulnerabilities/xss_d/code/xss-dom.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: DOM</a></li>
+			<li><a href=\"./vulnerabilities/exec/tut/cmd_inj.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Command Injection</a></li>
+			<li><a href=\"./vulnerabilities/xss_r/tut/xss-ref.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: Reflected</a></li>
+			<li><a href=\"./vulnerabilities/xss_s/tut/xss-sto.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: Stored</a></li>
+			<li><a href=\"./vulnerabilities/xss_d/tut/xss-dom.html\" target=\"_blank\" rel\"noopener nofollow noreferrer\">Cross-Site Scripting: DOM</a></li>
 			<li><a href=\"./vulnerabilities/\" target=\"_blank\" rel\"noopener nofollow noreferrer\"></a></li>
 		</ul>
 </div>

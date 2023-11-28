@@ -49,7 +49,7 @@ $page[ 'body' ] .= "
 
 	<center>
 	<button>
-    <a href=\"./code/\">Tutorial</a>
+    <a href=\"./tut/\">Tutorial</a>
 	</button>
 	</center>
 	
