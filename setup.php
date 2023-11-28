@@ -52,12 +52,18 @@ if (!$databaseExistsResult || mysqli_num_rows($databaseExistsResult) == 0) {
 	//$avatarUrl  = $base_dir . 'docs/users/';
 
 	//$enteredPassword = password_hash($enteredPassword, PASSWORD_DEFAULT); // More secure way.
+	// $insert = "INSERT INTO users (first_name, last_name, user, password) VALUES
+	// 	('admin','admin','admin',MD5('password')),
+	// 	('Gordon','Brown','gordonb',MD5('abc123')),
+	// 	('Hack','Me','1337',MD5('charley')),
+	// 	('Pablo','Picasso','pablo',MD5('letmein')),
+	// 	('Bob','Smith','smithy',MD5('password'));";
 	$insert = "INSERT INTO users (first_name, last_name, user, password) VALUES
 		('admin','admin','admin',MD5('password')),
-		('Gordon','Brown','gordonb',MD5('abc123')),
-		('Hack','Me','1337',MD5('charley')),
-		('Pablo','Picasso','pablo',MD5('letmein')),
-		('Bob','Smith','smithy',MD5('password'));";
+		('Jewsus','Crust','jdog',MD5('abc123')),
+		('Hi Elle','Hitler','elle',MD5('charley')),
+		('N','Eager','white',MD5('password')),
+		('Steve','Jobless','steveless',MD5('letmein'));";
 	if( !mysqli_query($GLOBALS["___mysqli_ston"],  $insert ) ) {
 		sentinelMessagePush( "Data could not be inserted into 'users' table<br />SQL: " . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) );
 		sentinelPageReload();
