@@ -80,6 +80,7 @@ if (array_key_exists ("id", $_GET) && array_key_exists ("security", $_GET)) {
 		<h1>{$vuln} Source</h1>
 
 		<h2>vulnerabilities/{$id}/source/{$security}.php</h2>
+		id={$id} security={$security}
 		<div id=\"code\">
 			<table width='100%' bgcolor='white' style=\"border:2px #C0C0C0 solid\">
 				<tr>
