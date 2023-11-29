@@ -23,6 +23,10 @@ $page[ 'body' ] .= "
 	</ul>
 
 	<h2>Credits</h2>
+
+	This project is inspired from " . sentinelExternalLinkUrlGet( 'https://github.com/digininja/DVWA', 'DVWA') . ".
+  	I added more functionalities and improved the user interface on top of this amazing project.<br>
+   
 	<ul>
 		<li>Suchit Reddi: " . sentinelExternalLinkUrlGet( 'https://suchitreddi.github.io/','suchitreddi.github.io' ) . "</li>
 	</ul>
