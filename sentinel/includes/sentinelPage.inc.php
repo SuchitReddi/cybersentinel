@@ -387,6 +387,14 @@ echo "<!DOCTYPE html>
                 window.location.href = \"/cybersentinel/delete.php\"; // Replace with your actual delete action
             }
         }
+
+		function confirmLogout() {
+            var currentuser = \"" . sentinelCurrentUser() . "\";
+            if (confirm(\"'\" + currentuser + \"', are you sure you want to logout?\")) {
+                // Logout the user if confirmed
+                window.location.href = \"/cybersentinel/logout.php\"; // Replace with your
+            }
+        }
     </script>
 
 	<body class=\"home\">
@@ -419,7 +427,7 @@ echo "<!DOCTYPE html>
 				  <li class=\"\"><a href=\"/cybersentinel/phpinfo.php\">PHP Info</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/logs.php\">Logs</a></li>
 				  <li class=\"\"><a href=\"/cybersentinel/about.php\">About</a></li>
-				  <li class=\"\"><a href=\"/cybersentinel/logout.php\">Logout</a></li>
+				  <li class=\"\"><a href=\"#\" onclick=\"confirmLogout()\">Logout</a></li>
 				  <li class=\"\"><a href=\"#\" onclick=\"confirmDelete()\">Delete User</a></li>
 				</ul>
 				</div><!-- main_menu_padded div end-->

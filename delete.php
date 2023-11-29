@@ -41,7 +41,7 @@ echo "<!DOCTYPE html>
 </body>
 </html>";
 
-// Function to validate the password (replace with your actual validation logic)
+// Function to validate the password
 function validatePassword($currentuser, $enteredPassword) {
     //$enteredPassword = password_hash($enteredPassword, PASSWORD_DEFAULT); // More secure way.
     $enteredPassword = stripslashes($enteredPassword);
@@ -55,7 +55,7 @@ function validatePassword($currentuser, $enteredPassword) {
     if ($result && mysqli_num_rows($result) != 0) {
         $row = mysqli_fetch_assoc($result);
         $hashedPassword = $row['password'];
-        // Example: Check against the stored hashed password in the database
+        // Check against the stored hashed password in the database
         if ($hashedPassword === $enteredPassword) {
             return true;
         }
@@ -70,7 +70,7 @@ function validatePassword($currentuser, $enteredPassword) {
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['delete_confirm'])) {
-        $enteredPassword = $_POST['password']; // Assuming your form has an input named 'password'
+        $enteredPassword = $_POST['password'];
         
         // Validate the password
         if (validatePassword($currentuser, $enteredPassword)) {
