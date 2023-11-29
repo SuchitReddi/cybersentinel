@@ -26,7 +26,7 @@ if (isset($_POST['Signup'])) {
 
     mysqli_select_db($GLOBALS["___mysqli_ston"], "sentinel");
     $result = mysqli_query($GLOBALS["___mysqli_ston"], $insert_query);
-    sentinelMessagePush( "Hi '{$first_name}', signup successful" );
+    sentinelMessagePush( "Hi '{$first_name} {$last_name}', signup successful" );
     sentinelRedirect( SENTINEL_WEB_PAGE_TO_ROOT . 'login.php' );
 }
 
