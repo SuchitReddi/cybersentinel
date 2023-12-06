@@ -16,3 +16,10 @@
 - Some existing functionalities like view help and source buttons in each vulneraility stopped working. They should be fixed.
 - Any new ideas and improvements are welcome.
 - I will prepare a proper usage guide to help contributors as soon as I am free.
+
+<b> How to add new vulnerabilities? </b>
+- Every module follows a similar template, which is very easy to understand. See the vulnerabilities folder for the basic structure.
+- All pages refer to this master or layout page `/sentinel/includes/sentinelPage.inc.php` containing most of the HTML front-end code, which is reused.
+- Adding new modules is simple. Add your source code folder in "vulnerabilities", and then add the vulnerability's index page to the vulnerabilities drop-down in master page mentioned above.
+- To change the front-end CSS, you can edit `/sentinel/css/main.css`.
+- You can find the documents for the project [here](https://suchitreddi.github.io/cybersentinel/cybersentinel.html).
