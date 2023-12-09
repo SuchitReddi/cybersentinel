@@ -11,5 +11,7 @@ Before creating an issue, check for existing issues and discussions.
 
 ## Code of Conduct
 
-I could have just copied a template here, but let's keep it simple. Don't be a bully. No one likes bullies.  
+Refer to CODE_OF_CONDUCT.md for the full document. 
+
+TLDR: Don't be a bully. No one likes bullies.  
 If you have a problem, send a mail at <a href="mailto:suchit20016+cybersentinel@gmail.com" target="_blank" rel="noopener noreferrer nofollow">suchit20016+cybersentinel@gmail.com</a>.
