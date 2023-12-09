@@ -27,9 +27,7 @@ Scope
 This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
 
 Enforcement:
-contact:
-<a href="#">suchit20016+cybersentinel@gmail.com</a>
-Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported to the community leaders responsible for enforcement at <>. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported to the community leaders responsible for enforcement at <suchit20016+cybersentinel@gmail.com>. All complaints will be reviewed and investigated promptly and fairly.
 
 Attribution
 This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at http://contributor-covenant.org/version/1/4
