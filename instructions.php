@@ -12,7 +12,7 @@ $page[ 'page_id' ] = 'instructions';
 
 $docs = array(
 	'readme'         => array( 'type' => 'markdown', 'legend' => 'Read Me', 'file' => 'README.md' ),
-	'license'        => array( 'type' => 'markdown', 'legend' => 'License', 'file' => 'LICENSE' ),
+	'license'        => array( 'type' => 'markdown', 'legend' => 'License', 'file' => 'LICENSE.md' ),
 );
 
 $selectedDocId = isset( $_GET[ 'doc' ] ) ? $_GET[ 'doc' ] : '';
