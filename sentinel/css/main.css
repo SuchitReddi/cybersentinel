@@ -102,11 +102,6 @@ ul+p {
 	margin-top: 20px;
 }
 
-.fixed {
-	font-family: Fixed, Courier, monospace;
-	font-size: 13px;
-}
-
 div.warning {
 	border: 2px solid #ff0000;
 	padding: 10px 20px 10px 20px;

@@ -12,7 +12,7 @@ $page[ 'page_id' ] = 'instructions';
 
 $docs = array(
 	'readme'         => array( 'type' => 'markdown', 'legend' => 'Read Me', 'file' => 'README.md' ),
-	'copying'        => array( 'type' => 'markdown', 'legend' => 'Copying', 'file' => 'COPYING.txt' ),
+	'license'        => array( 'type' => 'markdown', 'legend' => 'License', 'file' => 'LICENSE' ),
 );
 
 $selectedDocId = isset( $_GET[ 'doc' ] ) ? $_GET[ 'doc' ] : '';
@@ -55,9 +55,8 @@ $page[ 'body' ] .= "
 
 	{$docMenuHtml}
 
-	<span class=\"fixed\">
 		{$instructions}
-	</span>
+	
 </div>";
 
 sentinelHtmlEcho( $page );

@@ -443,7 +443,8 @@ echo "<!DOCTYPE html>
 			</div>
 
 			<div id=\"footer\">
-				<p><a style=\"font-size: 13px; background: black;\" href=\"https://github.com/SuchitReddi/cybersentinel\" target=\"_blank\" rel=\"nofollow noreferrer noopener\">Cyber Sentinel</a></p>
+				<p><a style=\"font-size: 13px; background: black;\" href=\"http://localhost/cybersentinel/instructions.php?doc=license\" target=\"_blank\" rel=\"nofollow noreferrer noopener\">
+				Cyber Sentinel © 2023</a></p>
 				<script src='" . SENTINEL_WEB_PAGE_TO_ROOT . "/sentinel/js/add_event_listeners.js'></script>
 			</div>
 
