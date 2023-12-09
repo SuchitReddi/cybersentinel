@@ -42,7 +42,7 @@ If any web server is compromised via installing Cyber Sentinel, it is not my res
 Feel free to highlight any mistakes and contribute to this project by opening pull requests. I'm free for a quick chat.  
 Mail: <a href="mailto:suchit20016+cybersentinel@gmail.com" target="_blank" rel="noopener noreferrer nofollow">suchit20016+cybersentinel@gmail.com</a>  
 Discord: <a href="https://discord.gg/sTwyENzBUb" target="_blank" rel="noopener noreferrer nofollow">Cyber Sentinel</a>  
-Slack: <a href="https://opensrccybersentinel.slack.com/archives/C0698UTSNGZ" target="_blank" rel="noopener noreferrer nofollow">opensrc_cybersentinel</a>
+Slack: <a href="https://join.slack.com/t/opensrccybersentinel/shared_invite/zt-28f973fci-7ObrO7JK8jE7FNG3qDiLvQ" target="_blank" rel="noopener noreferrer nofollow">opensrc_cybersentinel</a>
 
 ## Credits
 This project is inspired from [DVWA](https://github.com/digininja/DVWA). I added more functionalities and improved the user interface on top of this amazing project.
