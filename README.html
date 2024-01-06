@@ -20,117 +20,208 @@
     <meta name="author" content="Suchit Reddi">
 
     <style>
-        html {
-            background-color: grey;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #054b96;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
         }
 
         button {
-            padding: 1px;
+            background-color: #3b93f1;
+            outline: none;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 8%;
+        }
+
+        a {
+            font-size: 16px;
+
+        }
+
+        .button-box {
+
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
         }
     </style>
 
 </head>
 
 <body>
-    <button><a href="https://suchitreddi.github.io/cybersentinel/">Back</a></button><br>
-    <button><a href="https://suchitreddi.github.io/">Home</a></button><br>
-    <md-block>
-        <div style="font-family: 'Special Elite', sans-serif; font-size: 16px">
-            <center><img src="sentinel/images/logo.png" alt="Cyber Sentinel logo" width="450"></center><br>
+    <header>
+        <h1>Cyber Sentinel - Exploit and Patch Vulnerabilities ⚔</h1>
+    </header>
 
-            <h1 style="text-align: center;">Cyber Sentinel</h1>
-            Cyber Sentinel is a PHP/MySQL web application made intentionally vulnerable! This project aims to increase
-            awareness about common yet dangerous vulnerabilities.<br>
-            This application allows the user to exploit some beginner-level vulnerabilities by themselves. Tutorials are
-            provided to learn about:
-            <ul>
-                <li>The vulnerability</li>
-                <li>How it can be exploited</li>
-                <li>The part of the code causing this vulnerability.</li>
-                <li>How to patch this vulnerability at different levels.</li>
-            </ul>
-            <hr>
+    <div class="container">
+        <div class="button-box">
+            <a href="https://suchitreddi.github.io/Work/"> <button>Back</button></a>
+            <a href="https://suchitreddi.github.io/"> <button>Home</button></a>
 
-            <h3 style="text-align: center;">Installation</h3>
-            To set up this application on Windows, you must run Apache and MySQL services, which are inbuilt in
-            XAMPP.<br>
-            Follow this for setting up Cyber Sentinel on <a
-                href="https://suchitreddi.github.io/cybersentinel/docs/setupw.html" target="_blank"
-                ref="nofollow noopener noreferrer">Windows</a>.<br>
-            After setting up and downloading the repository, rename the folder to <b>cybersentinel</b> and place it
-            inside htdocs<br>
-            You can also download the dockerized version of the application here, which will require you to download the
-            Docker Desktop application for Windows.<br>
-            Follow the steps in this Docker Hub repository to use this application on <a
-                href="https://hub.docker.com/r/5herl0ck/cybersentinel" target="_blank"
-                ref="nofollow noopener noreferrer">Docker</a>.
-            <hr>
-
-            <h3 style="text-align: center;">For users</h3>
-            <ul>
-                <li>
-                    There are different vulnerabilities with different difficulty levels. The difficulty levels are
-                    based on how good the patch is for that specific vulnerability.
-                </li>
-                <li>
-                    There is no fixed objective to complete a module. If you feel you've exploited the system
-                    thoroughly, the goal is reached!
-                </li>
-                <li>
-                    There is a help button at the bottom to view hints & tips for that vulnerability. There are
-                    additional links for further reading on each vulnerability.
-                </li>
-            </ul>
-
-            <h3 style="text-align: center;">For developers</h3>
-            <ul>
-                <li>
-                    Refer to CONTRIBUTING.md and DEVELOPMENT.md for more information on how to contribute to this
-                    project.
-                </li>
-            </ul>
-            <hr>
-
-            <h2 style="text-align: center;">Disclaimer</h2>
-            This application is vulnerable! There are documented vulnerabilities that will cause more undocumented
-            ones.<br>
-            So, it is strictly advised <b>not</b> to use it directly on your host machine without any virtual machine or
-            docker.<br>
-            Do not host code from this project on internet-facing servers.<br><br>
-
-            I do not take responsibility for how anyone uses this application (Cyber Sentinel). I have made the purposes
-            of the application clear, and it should not be used maliciously.<br>
-            I have warned users from installing Cyber Sentinel on live web servers.<br><br>
-
-            If any web server is compromised via installing Cyber Sentinel, it is not my responsibility. It is the
-            responsibility of the person/s who uploaded and installed it.<br>
-            <hr>
-
-            <h2 style="text-align: center;">Contact</h2>
-            Feel free to highlight any mistakes and contribute to this project by opening pull requests. I'm free for a
-            quick chat.<br>
-            Mail: <a href="mailto:suchit20016+cybersentinel@gmail.com" target="_blank"
-                rel="noopener noreferrer nofollow">suchit20016+cybersentinel@gmail.com</a><br>
-            Discord: <a href="https://discord.gg/sTwyENzBUb" target="_blank" rel="noopener noreferrer nofollow">Cyber
-                Sentinel</a><br>
-            Slack: <a href="https://join.slack.com/t/opensrccybersentinel/shared_invite/zt-28f973fci-7ObrO7JK8jE7FNG3qDiLvQ" target="_blank"
-                rel="noopener noreferrer nofollow">opensrc_cybersentinel</a>
-            <hr>
-
-            <h2 style="text-align: center;">Credits</h2>
-            This project is inspired from <a href="https://github.com/digininja/DVWA" target="_blank" ref="nofollow
-                                            noopener noreferrer">DVWA</a>.
-            I added more functionalities and improved the user interface on top of this amazing project.
         </div>
-    </md-block>
 
-    <div id="footer" style="text-align: center;">
-        <p><a href="https://suchitreddi.github.io/cybersentinel/LICENSE.md" target="_blank" rel="nofollow noreferrer noopener">
-        Cyber Sentinel © 2023</a></p>
+
+        <h2>Cyber Sentinel</h2>
+        <p>Cyber Sentinel is a PHP/MySQL web application made intentionally vulnerable! This project aims to increase
+            awareness about common yet dangerous vulnerabilities.
+            This application allows the user to exploit some beginner-level vulnerabilities by themselves. Tutorials are
+            provided to learn about:</p>
+        <ul>
+            <li>The vulnerability</li>
+            <li>How it can be exploited</li>
+            <li>The part of the code causing this vulnerability.</li>
+            <li>How to patch this vulnerability at different levels.</li>
+        </ul>
+
+        <h2>Installation</h2>
+        <ol>
+            <li>
+                To set up this application on Windows, you must run Apache and MySQL
+                services, which are inbuilt in
+                XAMPP.
+            </li>
+            <li>
+                Follow this for setting up Cyber Sentinel on <a
+                    href="https://suchitreddi.github.io/cybersentinel/docs/setupw.html" target="_blank"
+                    ref="nofollow noopener noreferrer">Windows</a>
+            </li>
+            <li>
+                After setting up and downloading the repository, rename the folder to cybersentinel and place it inside
+                htdocs
+            </li>
+            <li>
+                You can also download the dockerized version of the application here, which will require you to download
+                the Docker Desktop application for Windows.
+            </li>
+            <li>
+                Follow the steps in this Docker Hub repository to use this application on <a
+                    href="https://hub.docker.com/r/5herl0ck/cybersentinel" target="_blank"
+                    ref="nofollow noopener noreferrer">Docker</a>.
+            </li>
+
+        </ol>
+
+
+
+
+
+        <h2>For users</h2>
+        <ul>
+            <li>
+                There are different vulnerabilities with different difficulty levels. The difficulty levels are based on
+                how good the patch is for that specific vulnerability.
+            </li>
+            <li>
+                There is no fixed objective to complete a module. If you feel you've exploited the system thoroughly,
+                the goal is reached!
+            </li>
+            <li>
+                There is a help button at the bottom to view hints & tips for that vulnerability. There are additional
+                links for further reading on each vulnerability.
+            </li>
+        </ul>
+
+
+        <h2>For developers</h2>
+        <ul>
+            <li>
+                Refer to CONTRIBUTING.md and DEVELOPMENT.md for more information on how to contribute to this project.
+            </li>
+        </ul>
+
+        <h2 style="text-align: center;">Disclaimer</h2>
+        <p style="text-align: center;">This application is vulnerable! There are documented vulnerabilities that will
+            cause more undocumented ones.
+            So, it is strictly advised not to use it directly on your host machine without any virtual machine or
+            docker.
+            Do not host code from this project on internet-facing servers.</p>
+        <br />
+        <p style="text-align: center;">
+            I do not take responsibility for how anyone uses this application (Cyber Sentinel). I have made the purposes
+            of the application clear, and it should not be used maliciously.
+            I have warned users from installing Cyber Sentinel on live web servers.
+        </p>
+        <br />
+        <p style="text-align: center;">
+            If any web server is compromised via installing Cyber Sentinel, it is not my responsibility. It is the
+            responsibility of the person/s who uploaded and installed it.
+        </p>
+        
+        <h2 style="text-align: center;">Credits</h2>
+        <p>This project is inspired from <a href="https://github.com/digininja/DVWA" target="_blank" ref="nofollow
+            noopener noreferrer">DVWA</a>. I added more functionalities and improved the user interface on top of this
+            amazing project.</p>
+        <h2 style="text-align: center;">Contact</h2>
+        <p style="text-align: center;">Feel free to highlight any mistakes and contribute to this project by opening
+            pull requests. I'm free for a
+            quick chat.</p>
+        <div style="width: 100%; display: flex ; align-items: center; justify-content: center ; gap: 10px;">
+            <a href="mailto:suchit20016+cybersentinel@gmail.com">
+                <button class="contact" style="width: 80px;">Mail</button>
+            </a>
+            <a href="https://discord.gg/sTwyENzBUb" target="_blank" rel="noopener noreferrer nofollow">
+                <button class="contact" style="width: 80px;">Discord</button>
+            </a>
+            <a href="https://join.slack.com/t/opensrccybersentinel/shared_invite/zt-28f973fci-7ObrO7JK8jE7FNG3qDiLvQ"
+                target="_blank" rel="noopener noreferrer nofollow">
+                <button class="contact" style="width: 80px;">Slack</button>
+            </a>
+        </div>
+        <p style="text-align: center;"><a href="https://suchitreddi.github.io/cybersentinel/LICENSE.md" target="_blank"
+                rel="nofollow noreferrer noopener">
+                Cyber Sentinel © 2023</a></p>
+
     </div>
-
-    <button><a href="https://suchitreddi.github.io/cybersentinel/">Back</a></button><br>
-    <button><a href="https://suchitreddi.github.io/">Home</a></button><br>
+    </div>
 </body>
 
 </html>

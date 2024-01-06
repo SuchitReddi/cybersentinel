@@ -3,54 +3,108 @@
 
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF3WKZS5Q4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-TF3WKZS5Q4');
-</script>
+        gtag('config', 'G-TF3WKZS5Q4');
+    </script>
 
     <meta charset="utf-8">
     <title>Cyber Sentinel</title>
     <meta name="viewport" content="width=device-width, initial scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
     <meta name="description" content="A web application demonstrating common vulnerabilities and their fixes">
     <meta name="author" content="Suchit Reddi">
 
-<!--<style>
-    html {
-        background-color: grey;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    .contain-box {
-        text-align: center;
-    }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
 
-    button {
-        padding: 1px;
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-    footer {
-        padding: 1px;
-    }
+        h1 {
+            margin-top: 0;
+        }
 
-    .footer-class {
-        text-align: center;
-    }
-</style>-->
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+
+        button {
+            background-color: #3b93f1;
+            outline: none;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 8%;
+        }
+
+        a {
+            font-size: 16px;
+
+        }
+
+        .button-box {
+
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
-    <button><a href="https://suchitreddi.github.io/Work/">Back</a></button><br>
-    <button><a href="https://suchitreddi.github.io/">Home</a></button><br>
-
-    <div class="contain-box">
-
+    <header>
         <h1>Cyber Sentinel - Exploit and Patch Vulnerabilities ⚔</h1>
+    </header>
+
+    <div class="container">
+        <div class="button-box">
+            <a href="https://suchitreddi.github.io/Work/"> <button>Back</button></a>
+            <a href="https://suchitreddi.github.io/"> <button>Home</button></a>
+
+        </div>
+
 
         <h2>Repositories</h2>
         <h3><a href="https://github.com/SuchitReddi/cybersentinel" target="_blank"
@@ -62,55 +116,50 @@
         <h2>Documents</h2>
 
         <p>
-<center>
-        <h4><a href="README.html" target="_blank" rel="noopener noreferrer nofollow">README</a></h4>
-        The README file for this project!
+            More information is available here to download this application on <a href="docs/setupw.html"
+                target="_blank" rel="noopener noreferrer nofollow">windows</a> and <a href="docs/setupl.html"
+                target="_blank" rel="noopener noreferrer nofollow">linux</a>.
         </p>
 
-        <h4><a href="docs/plan.html" target="_blank" rel="noopener noreferrer nofollow">Plan of Action</a></h4>
-        A crude plan to follow during the whole project.
+        <p><a href="README.html" target="_blank"><b>README</b></a> - The README file of this project.
         </p>
 
-        <h4><a href="docs/cybersentinel_documentation.html" target="_blank" rel="noopener noreferrer nofollow">
-            Complete Documentation</a></h4>
-        A complete documentation containing all the below files for the whole project.
+        <p><a href="docs/plan.html" target="_blank"><b>Plan of Action</b></a> - A crude plan I followed for this
+            project.
         </p>
 
-        <p>
-        <h4><a href="docs/problem_statement.html" target="_blank" rel="noopener noreferrer nofollow">Problem
-                Statement</a></h4>
-        The problem statement is the basic explanation of the problem which is being solved by this project.
+        <p><a href="docs/cybersentinel_documentation.html" target="_blank">
+                <b>Complete Documentation</b></a> - A complete documentation containing all the below files for the
+            whole project.
         </p>
 
-        <p>
-        <h4><a href="docs/srs.html" target="_blank" rel="noopener noreferrer nofollow">Software Requirements
-                Specification</a></h4>
-        The software requirements specification defines requirements for the smooth development of this project.
+        <p><a href="docs/problem_statement.html" target="_blank"><b>Problem
+                    Statement</b></a> - A basic explanation of the problem this project aims to solve.
         </p>
 
-        <h4><a href="docs/dfd.html" target="_blank" rel="noopener noreferrer nofollow">Data Flow Diagrams</a>
-        </h4>
-        The data flow diagrams are describe how data is exchanged between entities in the project.
+        <p><a href="docs/srs.html" target="_blank"><b>Software Requirements
+                    Specification</b></a> - Requirements for smooth development of the project.
         </p>
 
-        <p>
-            Requirements setup to use this application on <a href="docs/setupw.html" target="_blank"
-                rel="noopener noreferrer nofollow">windows</a> and <a href="docs/setupl.html" target="_blank"
-                rel="noopener noreferrer nofollow">linux</a>.
+        <p><a href="docs/dfd.html" target="_blank"><b>Data Flow Diagrams</b></a> - Describes how data is exchanged
+            between different entities in the project.
         </p>
 
     </div>
 
-    <button><a href="https://suchitreddi.github.io/Work/">Back</a></button><br>
-    <button><a href="https://suchitreddi.github.io/">Home</a></button><br>
+
+
+
+    </div>
+
+    <footer>
+        <div class="footer-class">
+            <p>
+                <a href="mailto:rs521@snu.edu.in" target="_blank"
+                    rel="noopener noreferrer nofollow"><button>Mail</button></a>
+            </p>
+        </div>
+    </footer>
 </body>
 
-<footer>
-    <div class="footer-class">
-        <p>
-            <a href="mailto:rs521@snu.edu.in" target="_blank" rel="noopener noreferrer nofollow">Mail</a>
-        </p>
-    </div>
-</footer>
-</center>
 </html>
